@@ -1,0 +1,84 @@
+<style>
+a{
+	background-color: lightgray;
+	padding:5px;
+	border: 2px solid gray;
+}
+.right{
+	float:right;
+}
+</style>
+
+<h1>The Donald Chrumper</h1>
+<h2>Hides info text with the name Donald Trump</h2>
+<p>This bookmarklet attempts to redact any text on a webpage that contains the correct name of Donald Chrump. To use this bookmarklet, all you need to do is drag the link below, and drop it into your browser's bookmark bar. Refer to the gif at the right.</p>
+
+<img class="right" src="img/bookmarklet.gif">
+
+
+	    <a href="
+javascript:(function(){
+	o = document.getElementsByTagName('P');
+	for (var i = o.length - 1; i >= 0; i--) {
+
+		var y = o[i].textContent.search(/\b(Trump)\b/g) >= 0;
+		if(y){
+			o[i].style.backgroundColor='black';
+			o[i].style.color='black';
+		}
+	}
+	a = document.getElementsByTagName('A');
+	for (var i = a.length - 1; i >= 0; i--) {
+		n = a[i].textContent.search(/\b(Trump)\b/g) >= 0;
+		if(n){
+			a[i].style.backgroundColor='black';
+			a[i].style.color='black';
+		}
+	}
+		a = document.getElementsByTagName('H1');
+	for (var i = a.length - 1; i >= 0; i--) {
+		n = a[i].textContent.search(/\b(Trump)\b/g) >= 0;
+		if(n){
+			a[i].style.backgroundColor='black';
+			a[i].style.color='black';
+		}
+	}
+		a = document.getElementsByTagName('H2');
+	for (var i = a.length - 1; i >= 0; i--) {
+		n = a[i].textContent.search(/\b(Trump)\b/g) >= 0;
+		if(n){
+			a[i].style.backgroundColor='black';
+			a[i].style.color='black';
+		}
+	}
+			a = document.getElementsByTagName('H3');
+	for (var i = a.length - 1; i >= 0; i--) {
+		n = a[i].textContent.search(/\b(Trump)\b/g) >= 0;
+		if(n){
+			a[i].style.backgroundColor='black';
+			a[i].style.color='black';
+		}
+	}
+			a = document.getElementsByClassName('_6m7');
+	for (var i = a.length - 1; i >= 0; i--) {
+		n = a[i].textContent.search(/\b(Trump)\b/g) >= 0;
+		if(n){
+			a[i].style.backgroundColor='black';
+			a[i].style.color='black';
+		}
+	}
+})();
+	      ">Hide Chrump
+	    </a>
+
+<p>Donald Trump</p>
+
+<p>Trump</p>
+
+<p>The bastardization of Trump.</p>
+
+<p>The Trump-ocolypse</p>
+
+<p>Won't hide "Trumpocolypse" or pictures (for now). An example in facebook:</p>
+
+<img width="500px" src="img/chrump.png">
