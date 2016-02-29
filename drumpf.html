@@ -1,0 +1,48 @@
+<style>
+.bookmarklet{
+	background-color: lightgray;
+	padding:5px;
+	border: 2px solid gray;
+}
+.right{
+	float:right;
+}
+</style>
+
+<h1>The Donald Drumpfer</h1>
+<h2>Bookmarklet that changes page elements with the name Donald Trump</h2>
+
+<p>A bookmark is a browser bookmark that performs special functions on your current webpage when clicked.</p>
+
+<p>This bookmarklet attempts to change any text on a webpage that contains the correct name of Donald Drumpf. To use this bookmarklet, all you need to do is drag the link below, and drop it into your browser's bookmark bar. Refer to the gif at the right.</p>
+
+<img class="right" src="img/bookmarklet.gif">
+
+
+	    <a href="
+javascript:(function(){
+	var tags = ['h1', 'h2', 'h3', 'p', 'span', 'a', '_6m7'];
+	for (j = 0; j <= tags.length; j++){
+		a = document.getElementsByTagName(tags[j]);
+		for (var i = a.length - 1; i >= 0; i--) {
+			a[i].textContent = a[i].textContent.replace(/\b(Trump)\b/g,'Drumpf');
+		}
+	}
+	console.log('drumpfd');
+})();
+	      ">Drumpf
+	    </a>
+
+<p>Donald Trump</p>
+
+<p>Trump</p>
+
+<p>The bastardization of Trump.</p>
+
+<p>The Trump-ocolypse</p>
+
+<a href="https://github.com/frigginglorious/chrumper">Fork this on Github</a>
+
+<p>Won't hide "Trumpocolypse" or pictures (for now). An example in facebook:</p>
+
+<img width="500px" src="img/chrump.png">
