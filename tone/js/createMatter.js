@@ -1,4 +1,12 @@
 var render;
+
+function percentX(percent) {
+  return Math.round(percent/100 * window.innerWidth);
+}
+function percentY(percent) {
+  return Math.round(percent/100 * window.innerHeight);
+}
+
 function Start() {
 
 // module aliases
@@ -10,13 +18,17 @@ var Engine = Matter.Engine,
 // create an engine
 var engine = Engine.create();
 
+var startWidth = window.innerWidth;
+var startHeight = window.innerHeight;
+var audioBars = 32
+
 // create a renderer
 render = Render.create({
     element: document.body,
     engine: engine,
     options: {
-        width: 800,
-        height: 600,
+        width: startWidth,
+        height: startHeight,
         pixelRatio: 1,
         background: '#fafafa',
         wireframeBackground: '#222',
@@ -47,12 +59,37 @@ render.canvas.id = "fft";
 console.log(render);
 
 // create two boxes and a ground
-boxA = Bodies.rectangle(400, 200, 80, 80);
-boxB = Bodies.rectangle(450, 50, 80, 80);
-ground = Bodies.rectangle(400, 610, 810, 60, { isStatic: true });
 
+boxes = []
+
+for(i=0;i<=audioBars; i++){
+    var x = startWidth * (i / audioBars);
+    // var y = (values[i] + 140) * 2;
+    var y = 550;
+
+    boxes.push(Bodies.rectangle(x, y, 80, 80, { isStatic: true }));
+}
+
+            // var barWidth = canvasWidth / fft.size;
+            // for (var i = 0, len = values.length; i < len; i++){
+            //  var x = canvasWidth * (i / len);
+            //  var y = (values[i] + 140) * 2;
+            //  fftContext.fillStyle = "rgba(0, 0, 0, " + i/len + ")";
+            //  fftContext.fillRect(x, canvasHeight - y, barWidth, canvasHeight);
+            // }
+
+
+boxA = Bodies.circle(600, 50, 80, 80);
+boxB = Bodies.circle(450, 100, 80, 80);
+ground = Bodies.rectangle(400, 610, startWidth, 60, { isStatic: true });
+
+boxes.push(boxA);
+boxes.push(boxB);
+
+
+boxes.push(ground);
 // add all of the bodies to the world
-World.add(engine.world, [boxA, boxB, ground]);
+World.add(engine.world, boxes);
 
 // run the engine
 Engine.run(engine);

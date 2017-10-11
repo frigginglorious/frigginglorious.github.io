@@ -6,15 +6,15 @@ $(document).ready(function(){
 		var fft = new Tone.FFT(32);
 
 		//get the waveform data for the audio
-		var waveform = new Tone.Waveform(128);
+		// var waveform = new Tone.Waveform(128);
 
 
 		player = new Tone.Player({
 			"url" : "./Setlers-Shallow_Grayve.mp3",
 			"loop" : true,
-			"volume": -40,
+			// "volume": -40,
 			"autostart" : "true",
-		}).fan(fft, waveform).toMaster();
+		}).fan(fft).toMaster();
 
 		// console.log(player);
 
@@ -42,16 +42,20 @@ $(document).ready(function(){
 		// }).appendTo("#Content").get(0).getContext("2d");
 
 		setTimeout(function(){
+			// $("#fft").height = 800;
 			// console.log(render.canvas);
 			// var fftContext = $('#hey').getContext("2d");
+			// $('#hey')
 			fftContext = render.canvas.getContext("2d");
+
+			// fftContext.canvas.height = 1000;
 			console.log(fftContext);
 			// sizeCanvases();
 
 			loop();
 
 		    //do what you need here
-		}, 2000);
+		}, 200);
 
 
 
@@ -67,8 +71,8 @@ $(document).ready(function(){
 			if(isFinite(values[10])){
 				// console.log(values[10]);
 
-				boxA.vertices[0].y = Math.abs(values[10])*5;
-				boxA.vertices[1].y = Math.abs(values[10])*5;
+				boxes[0].vertices[0].y = Math.abs(values[10])*5;
+				boxes[0].vertices[1].y = Math.abs(values[10])*5;
 
 			}
 
@@ -90,12 +94,21 @@ $(document).ready(function(){
 			// fftContext.clearRect(0, 0, canvasWidth, canvasHeight);
 
 			var barWidth = canvasWidth / fft.size;
-			// for (var i = 0, len = values.length; i < len; i++){
-			// 	var x = canvasWidth * (i / len);
-			// 	var y = (values[i] + 140) * 2;
-			// 	fftContext.fillStyle = "rgba(0, 0, 0, " + i/len + ")";
-			// 	fftContext.fillRect(x, canvasHeight - y, barWidth, canvasHeight);
-			// }
+			for (var i = 0, len = values.length; i < len; i++){
+				// var x = canvasWidth * (i / len);
+				// var y = (values[i] + 140) * 2;
+				// fftContext.fillStyle = "rgba(0, 0, 0, " + i/len + ")";
+				// fftContext.fillRect(x, canvasHeight - y, barWidth, canvasHeight);
+
+				if(isFinite(values[i])){
+					// console.log(values[10]);
+
+					boxes[i].vertices[0].y = Math.abs(values[i])*5;
+					boxes[i].vertices[1].y = Math.abs(values[i])*5;
+
+				}
+
+			}
 		}
 
 		//the waveform data
