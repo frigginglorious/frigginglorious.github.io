@@ -89,12 +89,12 @@
 		<!-- Copy this part to your app. -->
 		<!-- END                         -->
 		<!--=============================-->
+    <script src="./js/jquery.min.js"></script>
 
-			<script src="./js/matter.js" type="text/javascript"></script>
+	<script src="./js/matter.js" type="text/javascript"></script>
 
 	<script src="./js/createMatter.js"></script>
   
-	<script src="./js/jquery.min.js"></script>
 	<script src="./js/Tone.js"></script>
 	<script src="./js/draggabilly.js"></script>
 	<script src="./js/Logo.js"></script>
@@ -111,6 +111,12 @@
 </head>
 <body onload='Start()'>
 <div id="Content" class="FullScreen">
+
+    <div id="loadScreen">
+        <span id="loadTitle">Setlers - Shallow Grayve</span><br/>
+        <span id="loadSubText">Music Video Game Experience</span><br/>
+        <span id="loadText">Loading...</span>
+    </div>
 <!-- 		<div id="Title">Analyser</div>
 		<div id="Explanation">
 			<a href="https://tonejs.github.io/docs/#Analyser" target="_blank">Tone.Analyser</a>

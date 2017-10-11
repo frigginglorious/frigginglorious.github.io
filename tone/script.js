@@ -1,5 +1,8 @@
 var player;
 
+function removeLoadScreen(){
+	$("#loadScreen").hide(1000);
+}
 
 $(document).ready(function(){
 //analyse the frequency/amplitude of the incoming signal
@@ -14,6 +17,7 @@ $(document).ready(function(){
 			"loop" : true,
 			// "volume": -40,
 			"autostart" : "true",
+			"onload" : removeLoadScreen(),
 		}).fan(fft).toMaster();
 
 		// console.log(player);
@@ -68,13 +72,13 @@ $(document).ready(function(){
 			// console.log(values);
 			// boxA.vertices[0].x = values[0];
 			// boxA.vertices[0].y = values[1];
-			if(isFinite(values[10])){
-				// console.log(values[10]);
+			// if(isFinite(values[10])){
+			// 	// console.log(values[10]);
 
-				boxes[0].vertices[0].y = Math.abs(values[10])*5;
-				boxes[0].vertices[1].y = Math.abs(values[10])*5;
+			// 	boxes[0].vertices[0].y = Math.abs(values[10]);
+			// 	boxes[0].vertices[1].y = Math.abs(values[10]);
 
-			}
+			// }
 
 			// if(isFinite(values[20])){
 			// 	// console.log(values[10]);
@@ -103,8 +107,8 @@ $(document).ready(function(){
 				if(isFinite(values[i])){
 					// console.log(values[10]);
 
-					boxes[i].vertices[0].y = Math.abs(values[i])*5;
-					boxes[i].vertices[1].y = Math.abs(values[i])*5;
+					boxes[i].vertices[0].y = Math.abs(values[i])*8;
+					boxes[i].vertices[1].y = Math.abs(values[i])*8;
 
 				}
 
@@ -160,12 +164,12 @@ $(document).ready(function(){
 		$(window).resize(sizeCanvases);
 
 		function loop(){
-			setTimeout(function(){
+			// setTimeout(function(){
 				requestAnimationFrame(loop);
 				//get the fft data and draw it
 				var fftValues = fft.getValue();
 				drawFFT(fftValues);
-			}, 2);
+			// }, 2);
 
 			// requestAnimationFrame(loop);
 			// //get the fft data and draw it
