@@ -1,0 +1,511 @@
+# Sandstorm.io
+### Six Reasons it's Rocking the World of Open Source Web Apps
+Daniel Kraft - @frigginglorious
+<!-- .slide: data-background="http://99seyz3pdvbnuxk7824n.frigginglorious.sandcats.io:6080/catBack.png" -->
+
+---
+
+## Overview
+
+- Distribution made awesome
+
+- Security is covered
+
+- Data privacy
+
+- Ease of use
+
+- Best of Self-Hosting & SaaS
+
+- Sandstorm is actual magic
+
+<!-- .slide: data-background="http://99seyz3pdvbnuxk7824n.frigginglorious.sandcats.io:6080/waveBack.png" -->
+
+---
+
+## About Me
+
+- University of Wisconsin - Stout
+ - Information and Communication Technology
+- Full Stack Dev
+- Mostly work with PHP, JS
+- Open Source Ideologue
+
+<!-- .slide: data-background="http://99seyz3pdvbnuxk7824n.frigginglorious.sandcats.io:6080/sandBack.png" -->
+
+---
+
+"Sandstorm is an open source operating system for personal and private clouds."
+
+---
+## The Perfect Platform
+
+For 
+
+single-purpose 
+
+or
+
+single-use 
+
+## applications
+---
+
+Made for Plebs, used by Dweebs
+
+---
+
+## Let’s spin up some grains!
+- Reveal.js based slideshow editor
+- <a href="http://frigginglorious.sandcats.io:6080/shared/gK6sSJU7uAGt6E9lWcGgRtlUt8qsIa4jf8cXjdyT4WE">Smugrubber Grains: </a>Trello Clone & Markdown Editor
+- Google Docs/Drawings alternatives
+- File storage/sharing
+- GIT server & web interface
+- Slack alternative
+- Jukebox/Radio Server
+- CMS - Ghost & Wordpress
+- RSS reader
+- Web Analytics (Google Alternative)
+
+<!-- .slide: data-background="http://99seyz3pdvbnuxk7824n.frigginglorious.sandcats.io:6080/waveBack.png" -->
+
+
+---
+## Sandstorm's Purpose…
+For every great web application installed, there is a sys admin with at least a dozen headaches. An easy alternative is to pay a monthly fee for a company to take care of those headaches for you. But in response to that, the guys at Sandstorm have said it best:
+
+<!-- .slide: data-background="http://99seyz3pdvbnuxk7824n.frigginglorious.sandcats.io:6080/waveBack.png" -->
+---
+
+"For open source software to make sense, the user has to be running their own instance. Software-as-a-Service and open source web apps just don’t make sense together: it’s not really open source if you can’t run modified code, and the high barrier to entry shuts out hobby projects or anything unwilling to be monetized."
+
+<!-- .slide: data-background="http://99seyz3pdvbnuxk7824n.frigginglorious.sandcats.io:6080/waveBack.png" -->
+---
+
+## Under the hood
+
+- C++ Backend
+- Meteor JS Frontend
+   - Full Stack Javascript
+   - Responsible for all the real-time features
+- Cap’n Proto
+   - Remote Procedure Call
+- Possible wizardry
+
+---
+## Developers
+- Developed by Kenton Varda
+  - An ex-googler
+- Great Community
+  - freenode #sandstorm on IRC
+
+<!-- .slide: data-background="http://99seyz3pdvbnuxk7824n.frigginglorious.sandcats.io:6080/sandBack.png" -->
+
+---
+Enough Introduction...
+
+<img src="http://99seyz3pdvbnuxk7824n.frigginglorious.sandcats.io:6080/letsDoIt.gif"></img>
+
+---
+
+# #1: Distribution
+
+---
+
+Diversity:
+
+- A Dwarf Fortress map app?
+
+---
+
+The App Market
+
+---
+
+What's in an app?
+
+- A Fully-contained, packaged file
+ - Installed, then instantiated into grains
+
+---
+
+Grain: An instance of an App.
+
+---
+
+# #2: Security
+
+---
+## Application-level Security
+- "Fine-grained security"
+- "contained and mitigated to the maximum extent possible"
+- "isolates individual resources within an app"
+
+---
+
+## Only Enforces Access
+
+- Sandstorm allows apps to implement their own TYPES of access to a grain 
+ - commonly Read and Write access
+- Apps themselves are responsible for making sure the TYPES of access are enforced.
+
+---
+
+## Sharing Model Example
+- Someone shares their Etherpad document, and you have write access.
+- You share this doc with "Bad Manners Billy" to view.
+- Billy shares their view access to 10 people.
+- Revoking Billy's access also revokes those 10 peoples access.
+
+---
+### <blockquote>95% of security issues automatically mitigated, before they were discovered</blockquote>
+
+https://sandstorm.io/news/2016-02-29-security-track-record
+---
+
+
+## User *Grain* Access
+- Administered on a grain-by-grain basis
+ - "Capability-based Security"
+- A user's grains are only accessible by them, and who they choose to share access (except server root)
+- This applies to admins
+
+---
+
+## Sandstorm *Platform* Access
+
+- Guest
+ - Only access to a given grain
+ - Can't upload or spin up new grains
+- Invited User
+ - Install apps
+ - Upload Apps
+ - Spin up new grains
+- Admin
+ - Change other user's access level
+
+---
+
+## From User Perspective
+
+- Matches their process
+   - Single-task apps doing single tasks
+- One unified interface
+
+---
+## From Developer Perspective
+
+- What do you mean Security?
+  - Keep on coding for results
+- Packages Localized Dependencies
+   - Selectively includes for small size
+Just make sure you think in sandboxes!
+
+---
+
+# #3:  Data Privacy
+
+---
+
+## Saving users from themselves
+Apps will explicitly request permissions, just like an Android app
+
+---
+
+Please place tinfoil hat on head.
+
+<img src="http://99seyz3pdvbnuxk7824n.frigginglorious.sandcats.io:6080/hat.jpg"/>
+
+---
+
+## What if 
+
+- Single Point of Failure: The (Fictional) Day Google Forgot To Check Passwords
+ - https://www.youtube.com/watch?v=y4GB_NDU43Q
+- Dropbox dropped all of it's users passwords?
+ - This happened in 2011: http://venturebeat.com/2011/06/21/dropbox-files-left-unprotected-for-four-hours-due-to-software-bug/
+
+---
+
+It is now safe to remove tinfoil hat.
+
+---
+
+## Not meant for cloud
+<p>Scanningcabinet to organize mail & documents</p>
+
+- Who would use it?
+ - Configure App Engine server, deploy code
+- Distribute with SaaS?
+ - Upload all your sensitive docs to startup's server?
+ - No thank you.
+
+https://sandstorm.io/news/2014-07-21-open-source-web-apps-require-federated-hosting
+
+---
+
+Private Analytics: Use Piwik!
+
+- Adblock/Privacy Badger users aren't tracked.
+- %18 more traffic.
+
+---
+
+# #4:  Ease of Use
+
+---
+## Installation Requirements
+
+- Any Linux (Kernel 3.10+)
+- Must be x64
+- Minimum 1GB RAM (preferably 2GB)
+
+<!-- .slide: data-background="http://99seyz3pdvbnuxk7824n.frigginglorious.sandcats.io:6080/waveBack.png" -->
+---
+## Installation
+
+- SSH to server
+- <pre>curl https://install.sandstorm.io | bash</pre>
+- Follow Prompts
+ - Sandcats Subdomain
+- Set up Authentication
+
+<!-- .slide: data-background="http://99seyz3pdvbnuxk7824n.frigginglorious.sandcats.io:6080/waveBack.png" -->
+
+---
+
+
+But be careful about piping things to bash...
+<img src="http://99seyz3pdvbnuxk7824n.frigginglorious.sandcats.io:6080/tweet.png"/>
+
+
+<!-- .slide: data-background="http://99seyz3pdvbnuxk7824n.frigginglorious.sandcats.io:6080/waveBack.png" -->
+
+
+---
+
+## USER AUTHENTICATION
+- Google
+- Github
+- LDAP
+- SAML
+- Email 
+ - Kind of a pain
+
+<!-- .slide: data-background="http://99seyz3pdvbnuxk7824n.frigginglorious.sandcats.io:6080/waveBack.png" -->
+---
+# #5: Best of both worlds
+---
+## SaaS++
+Spin up a blog and publish it in less than a minute.
+
+(Static publishing seems to need some work yet.)
+---
+## Apps for free!
+
+http://oasis.sandstorm.io
+
+(also hosting for free)
+---
+## Want to customize?
+
+App code is always linked!
+
+---
+# #6: Magic Development
+(some restrictions apply)
+---
+<blockquote>Common app responsibilities like authentication, authorization, document management, scaling, backups, encryption, and more are handled automatically by the platform.</blockquote>
+- https://sandstorm.io/developer
+
+<!-- .slide: data-background="http://99seyz3pdvbnuxk7824n.frigginglorious.sandcats.io:6080/waveBack.png" -->
+---
+## What it's good for:
+
+Single use or single task apps.
+
+---
+
+## About Grains
+
+- All mutable data is stored in a /var/ folder
+
+
+<!-- .slide: data-background="http://99seyz3pdvbnuxk7824n.frigginglorious.sandcats.io:6080/waveBack.png" -->
+
+---
+
+# Porting or Developing Apps
+
+---
+
+“Sandstorm supports any programming language that runs on Linux, not just PHP, such as Meteor, Python, Rails, Node, PHP, C++, Go, Rust, and more.”
+- https://docs.sandstorm.io/en/latest/vagrant-spk/packaging-tutorial/
+
+---
+
+## Process
+- Initialize Vagrant-spk tool
+- Import your code
+- Include dependancies
+- Run Vagrant & test
+ - vagrant-spk up && vagrant-spk dev
+- Package
+ - vagrant-spk pack ../sweetAppBro.spk
+
+---
+
+## What is Vagrant?
+- Local VM
+- Built for development
+
+---
+
+## To Ready Environment
+- Install Git, Virtualbox, and Vagrant-spk 
+   - https://docs.sandstorm.io/en/latest/vagrant-spk/installation/
+- Setup the VM
+   - https://docs.sandstorm.io/en/latest/vagrant-spk/packaging-tutorial/
+- Clone boilerplate from github
+   - git clone git://github.com/paulproteus/php-app-to-package-for-sandstorm
+   
+---
+
+# DIESTORM
+
+The premiere RPG-dice-rolling app for Sandstorm.
+
+https://github.com/frigginglorious/dieStorm
+
+---
+server/serverFun.js
+
+As app starts up, declares function
+<section>
+  <pre><code>
+Meteor.startup(function () {
+    Meteor.methods({
+        checkSandstormUserPermissions: function () {
+            var sandstormUser = this.connection.sandstormUser();
+  </code></pre>
+</section>
+---
+both/rolls.js
+
+Globally instantiates the Mongo Database Table. The data is entirely containerized, and a lazy hack like this couldn't affect your server, any other sandstorm grains, or give any access to data that they wouldn't already have!
+<section>
+  <pre><code>
+Rolls = new Meteor.Collection('bolls');
+  </code></pre>
+</section>
+---
+client/dieStorm.html
+
+data is set to populate here, and each new item is passed to the "boll" template
+
+<section>
+  <pre><code>
+
+  < table id="passDataResult">
+    {{#each bolls}}
+      {{> boll}}
+    {{/each}}
+  < /table>
+
+
+  </code></pre>
+</section>
+
+---
+client/dieStorm.html
+
+lists each die roll as it's added to the Mongo Collection
+<section>
+  <pre><code>
+ < template name="boll">
+  < tr class="rollList">
+    < td class="aDate">{{ formatDate createdAt }} < /td>
+    < td class="aUser">{{ username }}< /td>
+    < td class="aType"> rolled a d{{ dieType }}< /td>
+    < td class="aRoll">{{ theRoll }}< /td>
+  < /tr>
+< /template>
+  </code></pre>
+</section>
+
+---
+client/serverCall.js
+<section>
+  <pre><code>
+
+Template.userRoll.onCreated(function userRollOnCreated() {
+    Meteor.call('checkSandstormUserPermissions');
+});
+
+  </code></pre>
+</section>
+
+---
+client/serverCall.js
+
+Tells the HTML template to grab the Mongo Collection, and how to display it.
+<section>
+  <pre><code>
+Template.userRoll.helpers({
+    bolls: function() {
+        return Rolls.find({}, { sort: { createdAt: -1 } });
+    },
+});
+  </code></pre>
+</section>
+
+---
+client/serverCall.js
+
+Click event, send data
+<section>
+  <pre><code>
+     Template.userRoll.events = {
+        'click .aDie': function (event) {
+            whichDie = event.target.innerHTML;
+            var guyID = Meteor.sandstormUser().id;
+            var guy = Meteor.sandstormUser().name;
+            Meteor.call('rollIt', whichDie, guyID, guy, function (err, response) {
+                if (err) {
+                    return;
+
+  </code></pre>
+</section>
+
+---
+both/rolls.js
+
+Finally, Store the Roll.
+<section>
+  <pre><code>
+rollIt: function(d, guyID, guy) {
+    var theRoll = d20.roll(d);
+    Rolls.insert({
+        theRoll: theRoll,
+        dieType: d,
+        createdAt: new Date(),
+        owner: guyID,
+        username: guy,
+  </code></pre>
+</section>
+
+---
+
+## Go forth and port
+- Downlaod project code
+- Fix database calls
+- Remove or Replace authentication
+
+---
+
+(Please Send A Designer)
+
+---
+
+## Thank You!
+<!-- .slide: data-background="http://99seyz3pdvbnuxk7824n.frigginglorious.sandcats.io:6080/catBack.png" -->
