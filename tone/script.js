@@ -1,3 +1,5 @@
+var player;
+
 $(document).ready(function(){
 
 
@@ -7,7 +9,7 @@ $(document).ready(function(){
 		//get the waveform data for the audio
 		var waveform = new Tone.Waveform(128);
 
-		var player = new Tone.Player({
+		player = new Tone.Player({
 			"url" : "./Setlers-Shallow_Grayve.mp3",
 			// "url" : "https://tonejs.github.io/examples/audio/FWDL.[mp3|ogg]",
 			// "url" : "https://setle.rs/grayve.mp3",
@@ -15,7 +17,7 @@ $(document).ready(function(){
 			"loop" : true
 		}).fan(fft, waveform).toMaster();
 
-
+		console.log(player);
 		// GUI //
 
 		Interface.Button({
@@ -24,7 +26,10 @@ $(document).ready(function(){
 			text : "Start",
 			activeText : "Stop",
 			start : function(){
-				player.start();
+				alert("may or may not be buffered... gotta learn how promises work.")
+				setTimeout(function(){
+					player.start();
+				}, 1000);
 			},
 			end : function(){
 				player.stop();
