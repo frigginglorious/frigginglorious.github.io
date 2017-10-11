@@ -16,23 +16,23 @@ render = Render.create({
     engine: engine,
     options: {
         width: 800,
-        height: 650,
+        height: 600,
         pixelRatio: 1,
         background: '#fafafa',
         wireframeBackground: '#222',
-        hasBounds: false,
+        hasBounds: true,
         enabled: true,
         wireframes: true,
         showSleeping: true,
         showDebug: false,
         showBroadphase: false,
-        showBounds: false,
+        showBounds: true,
         showVelocity: false,
         showCollisions: false,
         showSeparations: false,
-        showAxes: false,
-        showPositions: false,
-        showAngleIndicator: false,
+        showAxes: true,
+        showPositions: true,
+        showAngleIndicator: true,
         showIds: true,
         showShadows: false,
         showVertexNumbers: false,
@@ -43,8 +43,8 @@ render = Render.create({
 });
 
 render.canvas.id = "fft";
-
-// console.log(render.canvas);
+// render.canvas.width=1000;
+console.log(render);
 
 // create two boxes and a ground
 boxA = Bodies.rectangle(400, 200, 80, 80);

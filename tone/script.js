@@ -1,51 +1,45 @@
 var player;
 
+
 $(document).ready(function(){
-
-
 //analyse the frequency/amplitude of the incoming signal
 		var fft = new Tone.FFT(32);
 
 		//get the waveform data for the audio
 		var waveform = new Tone.Waveform(128);
 
+
 		player = new Tone.Player({
 			"url" : "./Setlers-Shallow_Grayve.mp3",
-			// "url" : "https://tonejs.github.io/examples/audio/FWDL.[mp3|ogg]",
-			// "url" : "https://setle.rs/grayve.mp3",
-      
-			"loop" : true
+			"loop" : true,
+			"volume": -40,
+			"autostart" : "true",
 		}).fan(fft, waveform).toMaster();
 
-		console.log(player);
-		// GUI //
+		// console.log(player);
 
-		Interface.Button({
-			key : 32,
-			type : "toggle",
-			text : "Start",
-			activeText : "Stop",
-			start : function(){
-				alert("may or may not be buffered... gotta learn how promises work.")
-				setTimeout(function(){
-					player.start();
-				}, 1000);
-			},
-			end : function(){
-				player.stop();
-			}
-		});
+		// Interface.Button({
+		// 	key : 32,
+		// 	type : "toggle",
+		// 	text : "Loading",
+		// 	activeText : "Stop",
+		// 	start : function(){
+		// 			player.start();
+		// 	},
+		// 	end : function(){
+		// 		player.stop();
+		// 	}
+		// });
+
+		// $(".Button").click(function(e){
+		// 	e.preventDefault();
+		// })
 
 		//drawing the FFT
 
 		// var fftContext = $("<canvas>",{
 		// 	"id" : "fft"
 		// }).appendTo("#Content").get(0).getContext("2d");
-
-
-		// var fftContext = $('#hey')//.getContext("2d");
-		// console.log(fftContext);
-		// var fftContext;
 
 		setTimeout(function(){
 			// console.log(render.canvas);
@@ -131,8 +125,14 @@ $(document).ready(function(){
 		var canvasWidth, canvasHeight;
 
 		function sizeCanvases(){
-			canvasWidth = $("#fft").width();
-			canvasHeight = $("#fft").height();
+			// canvasWidth = $("#fft").width();
+			// canvasHeight = $("#fft").height();
+			canvasWidth = $(document).width();
+
+			canvasHeight = $(document).height();
+
+
+
 			// waveContext.canvas.width = canvasWidth;
 			fftContext.canvas.width = canvasWidth;
 			// waveContext.canvas.height = canvasHeight;
