@@ -6,11 +6,12 @@
 
 #loadScreen{
 	position: absolute;
-	left: 20%;
+	left: 10%;
 	top: 40%;
+	width:100%;
 }
 #loadTitle{
-	font-size: 5em;
+	font-size: 4em;
 	color:white;
 }
 #loadText{

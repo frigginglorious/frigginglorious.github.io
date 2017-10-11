@@ -17,7 +17,7 @@ $(document).ready(function(){
 			"loop" : true,
 			// "volume": -40,
 			"autostart" : "true",
-			"onload" : removeLoadScreen(),
+			// "onload" : removeLoadScreen(),
 		}).fan(fft).toMaster();
 
 		// console.log(player);
