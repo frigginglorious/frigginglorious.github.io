@@ -86,6 +86,7 @@ function Start() {
     leftBoxes.push(Bodies.rectangle(x, y, 40, 40, { isStatic: true,
      }));
   }
+  // for (i = 0; i <= audioBars; i++) {
   for (i = audioBars; i > 0; i--) {
     var y = startHeight * (i / audioBars);
     var x = startWidth;
@@ -105,10 +106,10 @@ function Start() {
   boxA = Bodies.circle(100, 0, 80, { restitution: .9,
       render: {
       sprite: {
-        texture: 'https://raw.githubusercontent.com/liabru/matter-js/2560a681/demo/img/ball.png',
-        // texture: './img/logo512px.png',
-          // xScale: .25,
-          // yScale: .25,
+        // texture: 'https://raw.githubusercontent.com/liabru/matter-js/2560a681/demo/img/ball.png',
+        texture: './img/logo512px.png',
+          xScale: .25,
+          yScale: .25,
 
 
       }
@@ -137,6 +138,8 @@ function Start() {
   ground = Bodies.rectangle(400, 610, startWidth, 60, { isStatic: true });
   leftWall = Bodies.rectangle(0, 400, 60, startHeight, { isStatic: true, visible: false });
   rightWall = Bodies.rectangle(startWidth, 400, 60, startHeight, { isStatic: true, visible: false });
+  
+  centerBox = Bodies.rectangle(200, 200, 200, 200, { isStatic: true, visible: false });
 
 
   boxes.push(boxA);
@@ -144,6 +147,7 @@ function Start() {
   boxes.push(ground);
   boxes.push(leftWall);
   boxes.push(rightWall);
+  boxes.push(centerBox);
 
 
 

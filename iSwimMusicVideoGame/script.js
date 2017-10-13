@@ -1,5 +1,7 @@
 var player;
 
+var fftContext;
+
 function removeLoadScreen(){
 	$("#loadScreen").hide(1000);
 }
@@ -7,6 +9,8 @@ function removeLoadScreen(){
 $(document).ready(function(){
 //analyse the frequency/amplitude of the incoming signal
 		var fft = new Tone.FFT(32);
+
+		var meter = new Tone.Meter();
 
 		//get the waveform data for the audio
 		// var waveform = new Tone.Waveform(128);
@@ -18,7 +22,7 @@ $(document).ready(function(){
 			// "volume": -40,
 			"autostart" : "true",
 			// "onload" : removeLoadScreen(),
-		}).fan(fft).toMaster();
+		}).fan(fft).connect(meter).toMaster();
 
 		// console.log(player);
 
@@ -178,7 +182,7 @@ $(document).ready(function(){
 			// waveformGradient.addColorStop(1, "#000");
 		}
 
-		$(window).resize(sizeCanvases);
+		// $(window).resize(sizeCanvases);
 
 		function loop(){
 			// setTimeout(function(){
@@ -186,6 +190,7 @@ $(document).ready(function(){
 				//get the fft data and draw it
 				var fftValues = fft.getValue();
 				drawFFT(fftValues);
+				drawMeter();
 			// }, 2);
 
 			// requestAnimationFrame(loop);
@@ -196,5 +201,50 @@ $(document).ready(function(){
 			//get the waveform valeus and draw it
 			// var waveformValues = waveform.getValue();
 			// drawWaveform(waveformValues);
+		}
+
+		function drawMeter(){
+			var level = meter.getValue();
+			level = (level + 1) / 2;
+			// level = Tone.gainToDb(level); //scale it between 0 - 1
+			// console.log(level);
+			if  (level > 0 && level < 1){
+				console.log(level);
+
+				var scaleIt = level;
+				// Matter.Body.scale(boxB, scaleIt, scaleIt);
+				// boxB.render.circleRadius = level * 50;
+				// boxB.circleRadius = level * 50;
+				var my_gradient=fftContext.createLinearGradient(0,0,0,170);
+				my_gradient.addColorStop(0,"black");
+				my_gradient.addColorStop(level,"white");
+				fftContext.fillStyle=my_gradient;
+
+				centerBox.render.lineWidth = level * 20;
+				centerBox.render.strokeStyle = "blue";
+				centerBox.render.fillStyle = my_gradient;
+				// Matter.Body.set(boxB, {
+				// 	render: {
+				// 		sprite: {
+				// 		// texture: './img/face2.jpg',
+				// 			xScale: .10,
+				// 			yScale: .10,
+
+				// 	}}
+				// }, scaleIt);
+				// boxB.render.sprite.YScale = scaleIt;
+				// boxB.render.sprite.YScale(scaleIt);
+
+				// console.log(boxB.circleRadius);
+			}
+			// boxB.circleRadius = level * 80;
+
+
+			// boxB.circleRadius
+			// meterContext.clearRect(0, 0, startWidth, startHeight);
+			// meterContext.fillStyle = meterGraident;
+			// meterContext.fillRect(0, 0, startWidth, startHeight);
+			// meterContext.fillStyle = "white";
+			// meterContext.fillRect(startWidth * level, 0, startWidth, startHeight);
 		}
 });
