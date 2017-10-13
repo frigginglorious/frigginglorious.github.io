@@ -21,7 +21,7 @@ $(document).ready(function(){
 			"loop" : true,
 			// "volume": -40,
 			"autostart" : "true",
-			// "onload" : removeLoadScreen(),
+			"onload" : removeLoadScreen(),
 		}).fan(fft).connect(meter).toMaster();
 
 		// console.log(player);
