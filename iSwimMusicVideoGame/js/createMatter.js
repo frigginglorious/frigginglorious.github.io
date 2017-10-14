@@ -1,5 +1,10 @@
 var render;
 
+var World;
+var Engine;
+var canvas = document.getElementById('fft');
+// var context = canvas.getContext("2d");
+
 function percentX(percent) {
   return Math.round(percent / 100 * window.innerWidth);
 }
@@ -12,27 +17,35 @@ function percentY(percent) {
 
 
 
-var startWidth;
-var startHeight;
+var startWidth = 360; //window.innerWidth;
+var startHeight = 640; // window.innerHeight;
+var midCenter = startWidth/2;
+var charSize = startWidth/36;
+var wallBoxSize = 19;
+
 var audioBars;
 
 function Start() {
 
   // module aliases
-  var Engine = Matter.Engine,
-    Render = Matter.Render,
-    World = Matter.World,
-    Bodies = Matter.Bodies,
-    Common = Matter.Common,
-  Composites = Matter.Composites;
+    Engine = Matter.Engine;
+    Render = Matter.Render;
+    World = Matter.World;
+    Bodies = Matter.Bodies;
+    Common = Matter.Common;
+    MouseConstraint = Matter.MouseConstraint;
+    Mouse = Matter.Mouse;
+    Events = Matter.Events;
+    Composites = Matter.Composites;
+
+
 
 
     // create an engine
     var engine = Engine.create(),
     world = engine.world;
 
-  startWidth = window.innerWidth;
-  startHeight = window.innerHeight;
+
   audioBars = 32
 
   // create a renderer
@@ -45,7 +58,7 @@ function Start() {
       pixelRatio: 1,
       background: '#060506',
       showAngleIndicator: false,
-        wireframes: false,
+        wireframes: true,
       // wireframeBackground: '#222',
       // // hasBounds: true,
       // enabled: true,
@@ -57,19 +70,32 @@ function Start() {
       // showVelocity: false,
       // showCollisions: false,
       // showSeparations: false,
-      // // showAxes: true,
-      // // showPositions: true,
-      // // showAngleIndicator: true,
-      // // showIds: true,
+      showAxes: true,
+      showPositions: true,
+      showAngleIndicator: true,
+      showIds: true,
       // showShadows: false,
       // showVertexNumbers: false,
       // showConvexHulls: false,
       // showInternalEdges: false,
-      // showMousePosition: false,
+      showMousePosition: false
     }
   });
 
   render.canvas.id = "fft";
+
+  context = render.canvas.getContext("2d");
+  console.log(context)
+
+// mouseConstraint = MouseConstraint.create(Engine, {
+//   element: context
+// });
+ 
+// MouseConstraint.create(Engine, {
+//  element: context
+// });
+
+  
   // render.canvas.width=1000;
   console.log(render);
 
@@ -83,7 +109,7 @@ function Start() {
     var y = startHeight * (i / audioBars);
     var x = 0;
 
-    leftBoxes.push(Bodies.rectangle(x, y, 40, 40, { isStatic: true,
+    leftBoxes.push(Bodies.rectangle(x, y, wallBoxSize, wallBoxSize, { isStatic: true,
      }));
   }
   // for (i = 0; i <= audioBars; i++) {
@@ -91,7 +117,7 @@ function Start() {
     var y = startHeight * (i / audioBars);
     var x = startWidth;
 
-    rightBoxes.push(Bodies.rectangle(x, y, 40, 40, { isStatic: true,
+    rightBoxes.push(Bodies.rectangle(x, y, wallBoxSize, wallBoxSize, { isStatic: true,
      }));
   }
   // var barWidth = canvasWidth / fft.size;
@@ -135,19 +161,22 @@ function Start() {
   // Matter.Body.setMass(boxB, .0001);
   // "./img/logo512px.png"
 
-  ground = Bodies.rectangle(400, 610, startWidth, 60, { isStatic: true });
-  leftWall = Bodies.rectangle(0, 400, 60, startHeight, { isStatic: true, visible: false });
-  rightWall = Bodies.rectangle(startWidth, 400, 60, startHeight, { isStatic: true, visible: false });
-  
+  ground = Bodies.rectangle(0, startHeight, startWidth * 2, 10, { isStatic: true });
+  // leftWall = Bodies.rectangle(0, 400, 60, startHeight, { isStatic: true, visible: false });
+  // rightWall = Bodies.rectangle(startWidth, 400, 60, startHeight, { isStatic: true, visible: false });  
   centerBox = Bodies.rectangle(200, 200, 200, 200, { isStatic: true, visible: false });
 
+  charBox = Bodies.rectangle(startWidth/2 - (charSize/2), startHeight - 80, 50, 50, { isStatic: false });
 
-  boxes.push(boxA);
-  boxes.push(boxB);
+  // boxes.push(boxA);
+  // boxes.push(boxB);
+  // boxes.push(centerBox);
+
+  // boxes.push(charBox);
+
   boxes.push(ground);
-  boxes.push(leftWall);
-  boxes.push(rightWall);
-  boxes.push(centerBox);
+  // boxes.push(leftWall);
+  // boxes.push(rightWall);
 
 
 
@@ -163,6 +192,17 @@ function Start() {
   // run the renderer
   Render.run(render);
 
+  charVec = Matter.Vector.create(startWidth/2 - (charSize/2), startHeight - 20);
+  charVec = Matter.Vector.create(50,50);
+  // charBox.force(charVec);
+  // Matter.Body.setVelocity(charBox, charVec)
+  // let force = (-0.013) ;
+  // Matter.Body.applyForce(charBox, charBox.position, {x:0,y:force});
+
+  let force = (-0.0055 * charBox.mass);
+  Matter.Body.applyForce(charBox, charBox.position, {x:0,y:force});
+  World.add(engine.world, charBox);
+
 
   function getMousePos(canvas, evt) {
     var rect = canvas.getBoundingClientRect();
@@ -174,8 +214,8 @@ function Start() {
 
   var ball = function() {
 
-    var canvas = document.getElementById('fft');
-    var context = canvas.getContext('2d');
+    
+    context = canvas.getContext('2d');
 
     canvas.addEventListener('mousemove', function(evt) {
       var mousePos = getMousePos(canvas, evt);
@@ -197,32 +237,61 @@ function Start() {
     // });
   }
 
+console.log(mouseConstraint);
 
-  $(document).on('click', function(evt) {
-    var canvas = document.getElementById('fft');
-    var context = canvas.getContext('2d');
-    // canvas.addEventListener('mousemove', function(evt) {
-    var mousePos = getMousePos(canvas, evt);
-    console.log(mousePos);
-    ball = Bodies.circle(mousePos["x"], mousePos["y"], 70, {
-      density: 0.0005,
-      // frictionAir: 0.06,
-      restitution: 0.9,
-      // friction: 0.01,
-      render: {
-        sprite: {
-          texture: './img/face2.jpg',
-          xScale: .10,
-          yScale: .10,
 
-        }
-      }
-    });
-    World.add(engine.world, ball);
+Events.on(mouseConstraint, 'mousedown', function(event) {
+    console.log(event)
 
-    // })
-    // ball();
-  })
+    // console.log(getMousePos(canvas,event))
+    var mousePosition = event.mouse.position;
+    mp = mousePosition;
+    mouseIsDown = true;
+    let amount = .001;
+    console.log(mousePosition);
+    console.log(charBox.position.x);
+    if (event.mouse.position.x < charBox.position.x){
+      amount *= -1
+    }
+    let force = (amount * charBox.mass);
+    Matter.Body.applyForce(charBox, charBox.position, {x:force,y:0});
+
+});
+
+Events.on(mouseConstraint, 'mouseup', function(event) {
+    var mousePosition = event.mouse.position;
+    mp = mousePosition;
+    mouseIsDown = false;
+});
+
+
+
+
+  // $(document).on('click', function(evt) {
+  //   var canvas = document.getElementById('fft');
+  //   var context = canvas.getContext('2d');
+  //   // canvas.addEventListener('mousemove', function(evt) {
+  //   var mousePos = getMousePos(canvas, evt);
+  //   console.log(mousePos);
+  //   ball = Bodies.circle(mousePos["x"], mousePos["y"], 70, {
+  //     density: 0.0005,
+  //     // frictionAir: 0.06,
+  //     restitution: 0.9,
+  //     // friction: 0.01,
+  //     render: {
+  //       sprite: {
+  //         texture: './img/face2.jpg',
+  //         xScale: .10,
+  //         yScale: .10,
+
+  //       }
+  //     }
+  //   });
+  //   World.add(engine.world, ball);
+
+  //   // })
+  //   // ball();
+  // })
 
 
   // var stack = Composites.stack(20, 20, 10, 4, 0, 0, function(x, y) {
