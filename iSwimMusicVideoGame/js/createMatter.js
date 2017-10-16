@@ -2,6 +2,9 @@ var render;
 
 var World;
 var Engine;
+
+var mouseIsDown;
+
 var canvas = document.getElementById('fft');
 // var context = canvas.getContext("2d");
 
@@ -19,8 +22,8 @@ function percentY(percent) {
 
 var startWidth = 360; //window.innerWidth;
 var startHeight = 640; // window.innerHeight;
-var midCenter = startWidth/2;
-var charSize = startWidth/36;
+var midCenter = startWidth / 2;
+var charSize = startWidth / 36;
 var wallBoxSize = 19;
 
 var audioBars;
@@ -28,21 +31,21 @@ var audioBars;
 function Start() {
 
   // module aliases
-    Engine = Matter.Engine;
-    Render = Matter.Render;
-    World = Matter.World;
-    Bodies = Matter.Bodies;
-    Common = Matter.Common;
-    MouseConstraint = Matter.MouseConstraint;
-    Mouse = Matter.Mouse;
-    Events = Matter.Events;
-    Composites = Matter.Composites;
+  Engine = Matter.Engine;
+  Render = Matter.Render;
+  World = Matter.World;
+  Bodies = Matter.Bodies;
+  Common = Matter.Common;
+  MouseConstraint = Matter.MouseConstraint;
+  Mouse = Matter.Mouse;
+  Events = Matter.Events;
+  Composites = Matter.Composites;
 
 
 
 
-    // create an engine
-    var engine = Engine.create(),
+  // create an engine
+  var engine = Engine.create(),
     world = engine.world;
 
 
@@ -58,7 +61,7 @@ function Start() {
       pixelRatio: 1,
       background: '#060506',
       showAngleIndicator: false,
-        wireframes: true,
+      wireframes: true,
       // wireframeBackground: '#222',
       // // hasBounds: true,
       // enabled: true,
@@ -87,15 +90,15 @@ function Start() {
   context = render.canvas.getContext("2d");
   console.log(context)
 
-// mouseConstraint = MouseConstraint.create(Engine, {
-//   element: context
-// });
- 
-// MouseConstraint.create(Engine, {
-//  element: context
-// });
+  // mouseConstraint = MouseConstraint.create(Engine, {
+  //   element: context
+  // });
 
-  
+  // MouseConstraint.create(Engine, {
+  //  element: context
+  // });
+
+
   // render.canvas.width=1000;
   console.log(render);
 
@@ -109,16 +112,18 @@ function Start() {
     var y = startHeight * (i / audioBars);
     var x = 0;
 
-    leftBoxes.push(Bodies.rectangle(x, y, wallBoxSize, wallBoxSize, { isStatic: true,
-     }));
+    leftBoxes.push(Bodies.rectangle(x, y, wallBoxSize, wallBoxSize, {
+      isStatic: true,
+    }));
   }
   // for (i = 0; i <= audioBars; i++) {
   for (i = audioBars; i > 0; i--) {
     var y = startHeight * (i / audioBars);
     var x = startWidth;
 
-    rightBoxes.push(Bodies.rectangle(x, y, wallBoxSize, wallBoxSize, { isStatic: true,
-     }));
+    rightBoxes.push(Bodies.rectangle(x, y, wallBoxSize, wallBoxSize, {
+      isStatic: true,
+    }));
   }
   // var barWidth = canvasWidth / fft.size;
   // for (var i = 0, len = values.length; i < len; i++){
@@ -129,17 +134,19 @@ function Start() {
   // }
 
 
-  boxA = Bodies.circle(100, 0, 80, { restitution: .9,
-      render: {
+  boxA = Bodies.circle(100, 0, 80, {
+    restitution: .9,
+    render: {
       sprite: {
         // texture: 'https://raw.githubusercontent.com/liabru/matter-js/2560a681/demo/img/ball.png',
         texture: './img/logo512px.png',
-          xScale: .25,
-          yScale: .25,
+        xScale: .25,
+        yScale: .25,
 
 
       }
-    }, });
+    },
+  });
   Matter.Body.setMass(boxA, .01);
   // Matter.Body.restitution(boxA, .8);
 
@@ -150,8 +157,8 @@ function Start() {
       sprite: {
         // texture: 'https://raw.githubusercontent.com/liabru/matter-js/2560a681/demo/img/ball.png'
         texture: './img/logo512px.png',
-          xScale: .25,
-          yScale: .25,
+        xScale: .25,
+        yScale: .25,
 
 
       }
@@ -166,7 +173,7 @@ function Start() {
   // rightWall = Bodies.rectangle(startWidth, 400, 60, startHeight, { isStatic: true, visible: false });  
   centerBox = Bodies.rectangle(200, 200, 200, 200, { isStatic: true, visible: false });
 
-  charBox = Bodies.rectangle(startWidth/2 - (charSize/2), startHeight - 80, 50, 50, { isStatic: false });
+  charBox = Bodies.rectangle(startWidth / 2 - (charSize / 2), startHeight - 80, 50, 50, { isStatic: false });
 
   // boxes.push(boxA);
   // boxes.push(boxB);
@@ -192,34 +199,42 @@ function Start() {
   // run the renderer
   Render.run(render);
 
-  charVec = Matter.Vector.create(startWidth/2 - (charSize/2), startHeight - 20);
-  charVec = Matter.Vector.create(50,50);
+  charVec = Matter.Vector.create(startWidth / 2 - (charSize / 2), startHeight - 20);
+  charVec = Matter.Vector.create(50, 50);
   // charBox.force(charVec);
   // Matter.Body.setVelocity(charBox, charVec)
   // let force = (-0.013) ;
   // Matter.Body.applyForce(charBox, charBox.position, {x:0,y:force});
 
   let force = (-0.0055 * charBox.mass);
-  Matter.Body.applyForce(charBox, charBox.position, {x:0,y:force});
+  Matter.Body.applyForce(charBox, charBox.position, { x: 0, y: force });
   World.add(engine.world, charBox);
 
 
-  function getMousePos(canvas, evt) {
-    var rect = canvas.getBoundingClientRect();
-    return {
-      x: evt.clientX - rect.left,
-      y: evt.clientY - rect.top
-    };
-  }
 
-  var ball = function() {
 
-    
-    context = canvas.getContext('2d');
+  var mouser = function() {
 
-    canvas.addEventListener('mousemove', function(evt) {
-      var mousePos = getMousePos(canvas, evt);
-      var message = 'Mouse position: ' + mousePos.x + ',' + mousePos.y;
+
+    context = render.canvas.getContext('2d');
+
+    // render.canvas.addEventListener('mousemove', function(evt) {
+    //   var mousePos = getMousePos(render.canvas, evt);
+    //   var message = 'Mouse position: ' + mousePos.x + ',' + mousePos.y;
+    //   console.log(message);
+    //   // writeMessage(canvas, message);
+    // }, false);
+
+
+    render.canvas.addEventListener('mousedown', function(evt) {
+      moveIt(evt);
+      // writeMessage(canvas, message);
+    }, false);
+
+    render.canvas.addEventListener('mouseup', function(evt) {
+      mouseIsDown = false;
+      console.log("updawg");
+
       // writeMessage(canvas, message);
     }, false);
 
@@ -237,32 +252,34 @@ function Start() {
     // });
   }
 
-console.log(mouseConstraint);
+
+mouser();
+  // console.log(mouseConstraint);
 
 
-Events.on(mouseConstraint, 'mousedown', function(event) {
-    console.log(event)
+  // Events.on(mouseConstraint, 'mousedown', function(event) {
+  //     console.log(event)
 
-    // console.log(getMousePos(canvas,event))
-    var mousePosition = event.mouse.position;
-    mp = mousePosition;
-    mouseIsDown = true;
-    let amount = .001;
-    console.log(mousePosition);
-    console.log(charBox.position.x);
-    if (event.mouse.position.x < charBox.position.x){
-      amount *= -1
-    }
-    let force = (amount * charBox.mass);
-    Matter.Body.applyForce(charBox, charBox.position, {x:force,y:0});
+  //     // console.log(getMousePos(canvas,event))
+  //     var mousePosition = event.mouse.position;
+  //     mp = mousePosition;
+  //     mouseIsDown = true;
+  //     let amount = .001;
+  //     console.log(mousePosition);
+  //     console.log(charBox.position.x);
+  //     if (event.mouse.position.x < charBox.position.x){
+  //       amount *= -1
+  //     }
+  //     let force = (amount * charBox.mass);
+  //     Matter.Body.applyForce(charBox, charBox.position, {x:force,y:0});
 
-});
+  // });
 
-Events.on(mouseConstraint, 'mouseup', function(event) {
-    var mousePosition = event.mouse.position;
-    mp = mousePosition;
-    mouseIsDown = false;
-});
+  // Events.on(mouseConstraint, 'mouseup', function(event) {
+  //     var mousePosition = event.mouse.position;
+  //     mp = mousePosition;
+  //     mouseIsDown = false;
+  // });
 
 
 
@@ -320,5 +337,31 @@ Events.on(mouseConstraint, 'mouseup', function(event) {
   // });
 
   // World.add(world, stack);
+
+}
+
+  function getMousePos(canvas, evt) {
+    var rect = canvas.getBoundingClientRect();
+    return {
+      x: evt.clientX - rect.left,
+      y: evt.clientY - rect.top
+    };
+  }
+
+function moveIt(evt){
+        var mousePos = getMousePos(render.canvas, evt);
+      var message = 'Mouse position: ' + mousePos.x + ',' + mousePos.y;
+      console.log(message);
+
+      // var mousePosition = event.mouse.position;
+      mp = mousePos;
+      mouseIsDown = true;
+      let amount = .001;
+      if (mousePos.x < charBox.position.x){
+        amount *= -1
+      }
+      let force = (amount * charBox.mass);
+      Matter.Body.applyForce(charBox, charBox.position, {x:force,y:0});
+
 
 }

@@ -133,6 +133,9 @@ $(document).ready(function() {
     var fftValues = fft.getValue();
     drawFFT(fftValues);
     drawMeter();
+    if (mouseIsDown){
+      console.log("down town");
+    }
     // }, 2);
 
     // requestAnimationFrame(loop);
