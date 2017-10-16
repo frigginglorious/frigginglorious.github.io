@@ -21,7 +21,7 @@ $(document).ready(function() {
   player = new Tone.Player({
     "url": "./Setlers-I_Swim.mp3",
     "loop": true,
-    "volume": -80,
+    // "volume": -80,
     "autostart": "true",
     "onload": removeLoadScreen(),
   }).fan(fft).connect(meter).toMaster();
@@ -135,7 +135,24 @@ $(document).ready(function() {
     drawMeter();
     if (mouseIsDown){
       console.log("down town");
+      //   var mousePos = getMousePos(render.canvas, evt);
+      // var message = 'Mouse position: ' + mousePos.x + ',' + mousePos.y;
+      // console.log(message);
+
+      // // var mousePosition = event.mouse.position;
+      // mp = mousePos;
+      // mouseIsDown = true;
+      // let amount = .001;
+      // if (mousePos.x < charBox.position.x){
+      //   amount *= -1
+      // }
+      // let force = (amount * charBox.mass);
+      // Matter.Body.applyForce(charBox, charBox.position, {x:force,y:0});
+
+      
     }
+
+
     // }, 2);
 
     // requestAnimationFrame(loop);
@@ -153,6 +170,10 @@ $(document).ready(function() {
 
     let force = (-0.001 * charBox.mass);
     Matter.Body.applyForce(charBox, charBox.position, { x: 0, y: force });
+
+
+
+
 
   }
 
