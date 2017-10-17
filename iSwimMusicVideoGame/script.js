@@ -4,6 +4,9 @@ var fftContext;
 
 var multiplier = .4;
 
+var antiGravForce;
+
+var loopCount = 0;
 function removeLoadScreen() {
   $("#loadScreen").hide(1000);
 }
@@ -11,9 +14,10 @@ function removeLoadScreen() {
 $(document).ready(function() {
 
   Start();
+  antiGravForce = (-0.0055 * charBox.mass);
 
-    var force = (-0.0055 * charBox.mass);
-  Matter.Body.applyForce(charBox, charBox.position, { x: 0, y: force });
+
+  Matter.Body.applyForce(charBox, charBox.position, { x: 0, y: antiGravForce });
 
     // var canvas = document.getElementById('fft');
     // var context = canvas.getContext('2d');
@@ -146,6 +150,10 @@ $(document).ready(function() {
   // $(window).resize(sizeCanvases);
 
   function loop() {
+    loopCount++;
+    if (loopCount % 20 == 0){
+      dropItem();
+    }
     // setTimeout(function(){
     requestAnimationFrame(loop);
     //get the fft data and draw it
@@ -158,6 +166,7 @@ $(document).ready(function() {
       // var mousePos = getMousePos(render.canvas, evt);
       moveIt(direction);
     }
+    Matter.Body.applyForce(charBox, charBox.position, { x: 0, y: (-0.0010 * charBox.mass ) });
 
 
     // }, 2);
@@ -175,7 +184,7 @@ $(document).ready(function() {
     // charBox.force(charVec);
     // addChar();
 
-    var force = (-0.00001 * charBox.mass);
+    // var force = (-0.00001 * charBox.mass);
     // Matter.Body.applyForce(charBox, charBox.position, { x: 0, y: force });
 
 
@@ -227,3 +236,22 @@ $(document).ready(function() {
     // meterContext.fillRect(startWidth * level, 0, startWidth, startHeight);
   }
 });
+
+function dropItem(){
+  World.add(engine.world, Bodies.circle(100, 100, 10, {
+    mass: .01,
+    restitution: .9,
+    render: {
+      sprite: {
+        // texture: 'https://raw.githubusercontent.com/liabru/matter-js/2560a681/demo/img/ball.png'
+        texture: './img/logo512px.png',
+        xScale: .25,
+        yScale: .25,
+
+
+      }
+    },
+
+  }))
+  // midCenter;
+}

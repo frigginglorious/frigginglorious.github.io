@@ -2,6 +2,7 @@ var render;
 
 var World;
 var Engine;
+var engine;
 
 var mouseIsDown;
 var direction;
@@ -43,7 +44,7 @@ function Start() {
 
 
   // create an engine
-  var engine = Engine.create(),
+  engine = Engine.create(),
     world = engine.world;
 
 
