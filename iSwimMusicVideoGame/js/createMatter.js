@@ -4,9 +4,7 @@ var World;
 var Engine;
 
 var mouseIsDown;
-
-var canvas = document.getElementById('fft');
-// var context = canvas.getContext("2d");
+var direction;
 
 function percentX(percent) {
   return Math.round(percent / 100 * window.innerWidth);
@@ -199,15 +197,15 @@ function Start() {
   // run the renderer
   Render.run(render);
 
-  charVec = Matter.Vector.create(startWidth / 2 - (charSize / 2), startHeight - 20);
-  charVec = Matter.Vector.create(50, 50);
+  // charVec = Matter.Vector.create(startWidth / 2 - (charSize / 2), startHeight - 500);
+  // charVec = Matter.Vector.create(50, 50);
+
   // charBox.force(charVec);
   // Matter.Body.setVelocity(charBox, charVec)
   // let force = (-0.013) ;
   // Matter.Body.applyForce(charBox, charBox.position, {x:0,y:force});
 
-  let force = (-0.0055 * charBox.mass);
-  Matter.Body.applyForce(charBox, charBox.position, { x: 0, y: force });
+
   World.add(engine.world, charBox);
 
 
@@ -226,17 +224,7 @@ function Start() {
     // }, false);
 
 
-    render.canvas.addEventListener('mousedown', function(evt) {
-      moveIt(evt);
-      // writeMessage(canvas, message);
-    }, false);
 
-    render.canvas.addEventListener('mouseup', function(evt) {
-      mouseIsDown = false;
-      console.log("updawg");
-
-      // writeMessage(canvas, message);
-    }, false);
 
     // console.log(getMousePos(render.canvas,evt));
     // return Bodies.circle(400, 20, 23, {
@@ -348,20 +336,16 @@ mouser();
     };
   }
 
-function moveIt(evt){
-        var mousePos = getMousePos(render.canvas, evt);
-      var message = 'Mouse position: ' + mousePos.x + ',' + mousePos.y;
-      console.log(message);
+function moveIt(direction){
+      // var message = 'Mouse position: ' + mousePos.x + ',' + mousePos.y;
+      // console.log(message);
 
       // var mousePosition = event.mouse.position;
-      mp = mousePos;
+      // mp = mousePos;
       mouseIsDown = true;
-      let amount = .001;
-      if (mousePos.x < charBox.position.x){
-        amount *= -1
-      }
-      let force = (amount * charBox.mass);
+      var amount = .001 * direction;
+
+
+      var force = (amount * charBox.mass);
       Matter.Body.applyForce(charBox, charBox.position, {x:force,y:0});
-
-
 }

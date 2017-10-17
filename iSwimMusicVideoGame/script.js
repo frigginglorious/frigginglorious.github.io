@@ -9,29 +9,48 @@ function removeLoadScreen() {
 }
 
 $(document).ready(function() {
+
+  Start();
+
+    var force = (-0.0055 * charBox.mass);
+  Matter.Body.applyForce(charBox, charBox.position, { x: 0, y: force });
+
+    // var canvas = document.getElementById('fft');
+    // var context = canvas.getContext('2d');
+    render.canvas.addEventListener('mousedown', function(evt) {
+      var mousePos = getMousePos(render.canvas, evt);
+      direction = 1
+
+      if (mousePos.x < charBox.position.x){
+        direction *= -1
+      }
+      moveIt(direction);
+      // writeMessage(canvas, message);
+    }, false);
+
+    render.canvas.addEventListener('mouseup', function(evt) {
+      mouseIsDown = false;
+      console.log("updawg");
+
+      // writeMessage(canvas, message);
+    }, false);
+
   //analyse the frequency/amplitude of the incoming signal
   var fft = new Tone.FFT(32);
 
   var meter = new Tone.Meter();
 
-  //get the waveform data for the audio
-  // var waveform = new Tone.Waveform(128);
-
-
   player = new Tone.Player({
     "url": "./Setlers-I_Swim.mp3",
     "loop": true,
-    // "volume": -80,
+    "volume": -80,
     "autostart": "true",
     "onload": removeLoadScreen(),
   }).fan(fft).connect(meter).toMaster();
 
 
   setTimeout(function() {
-    // $("#fft").height = 800;
-    // console.log(render.canvas);
-    // var fftContext = $('#hey').getContext("2d");
-    // $('#hey')
+
     fftContext = render.canvas.getContext("2d");
 
     // fftContext.canvas.height = 1000;
@@ -135,21 +154,9 @@ $(document).ready(function() {
     drawMeter();
     if (mouseIsDown){
       console.log("down town");
-      //   var mousePos = getMousePos(render.canvas, evt);
-      // var message = 'Mouse position: ' + mousePos.x + ',' + mousePos.y;
-      // console.log(message);
-
-      // // var mousePosition = event.mouse.position;
-      // mp = mousePos;
-      // mouseIsDown = true;
-      // let amount = .001;
-      // if (mousePos.x < charBox.position.x){
-      //   amount *= -1
-      // }
-      // let force = (amount * charBox.mass);
-      // Matter.Body.applyForce(charBox, charBox.position, {x:force,y:0});
-
-      
+      console.log(charBox.position.x);
+      // var mousePos = getMousePos(render.canvas, evt);
+      moveIt(direction);
     }
 
 
@@ -168,11 +175,8 @@ $(document).ready(function() {
     // charBox.force(charVec);
     // addChar();
 
-    let force = (-0.001 * charBox.mass);
-    Matter.Body.applyForce(charBox, charBox.position, { x: 0, y: force });
-
-
-
+    var force = (-0.00001 * charBox.mass);
+    // Matter.Body.applyForce(charBox, charBox.position, { x: 0, y: force });
 
 
   }
