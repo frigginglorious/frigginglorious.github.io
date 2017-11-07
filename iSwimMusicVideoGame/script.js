@@ -6,6 +6,13 @@ var multiplier = .4;
 
 var antiGravForce;
 
+var scoreCounter = 0;
+
+var defaultCategory = 0x0001,
+        wallCategory = 0x0002;
+        // greenCategory = 0x0004,
+        // blueCategory = 0x0008;
+
 var loopCount = 0;
 function removeLoadScreen() {
   $("#loadScreen").hide(1000);
@@ -47,7 +54,7 @@ $(document).ready(function() {
   player = new Tone.Player({
     "url": "./Setlers-I_Swim.mp3",
     "loop": true,
-    "volume": -80,
+    // "volume": -80,
     "autostart": "true",
     "onload": removeLoadScreen(),
   }).fan(fft).connect(meter).toMaster();
@@ -152,8 +159,21 @@ $(document).ready(function() {
   function loop() {
     loopCount++;
     if (loopCount % 20 == 0){
-      dropItem();
+      loopCount = 0;
+      var level = meter.getValue();
+      console.log(level);
+      if (level > 0){
+        dropItem(level);
+
+      }
     }
+    console.log("Score: " + scoreCounter.toString())
+    // Events.on(engine, "afterUpdate", function(){
+    Events.on(engine, "collisionStart", function(o){
+      // console.info(o);
+      scoreCounter++;
+      $("#score").text(scoreCounter);
+    })
     // setTimeout(function(){
     requestAnimationFrame(loop);
     //get the fft data and draw it
@@ -166,7 +186,7 @@ $(document).ready(function() {
       // var mousePos = getMousePos(render.canvas, evt);
       moveIt(direction);
     }
-    Matter.Body.applyForce(charBox, charBox.position, { x: 0, y: (-0.0010 * charBox.mass ) });
+    Matter.Body.applyForce(charBox, charBox.position, { x: 0, y: (-0.001 * charBox.mass ) });
 
 
     // }, 2);
@@ -237,16 +257,22 @@ $(document).ready(function() {
   }
 });
 
-function dropItem(){
-  World.add(engine.world, Bodies.circle(100, 100, 10, {
+function dropItem(level){
+  pos = startWidth * level
+  console.log(pos)
+  World.add(engine.world, Bodies.circle(pos, 0, 10, {
     mass: .01,
     restitution: .9,
+    collisionFilter: {
+      // category: wallCategory,
+      mask: defaultCategory,
+    },
     render: {
       sprite: {
         // texture: 'https://raw.githubusercontent.com/liabru/matter-js/2560a681/demo/img/ball.png'
         texture: './img/logo512px.png',
-        xScale: .25,
-        yScale: .25,
+        xScale: .055,
+        yScale: .055,
 
 
       }

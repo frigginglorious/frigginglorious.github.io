@@ -21,3 +21,9 @@
 	font-size: 2em;
 	color:white;
 }
+#scoreBoard{
+	color: red;
+	position: absolute;
+	right: 25%;
+	top: 5%;
+}

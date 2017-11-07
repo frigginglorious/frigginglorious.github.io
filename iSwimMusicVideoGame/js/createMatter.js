@@ -60,7 +60,7 @@ function Start() {
       pixelRatio: 1,
       background: '#060506',
       showAngleIndicator: false,
-      wireframes: true,
+      wireframes: false,
       // wireframeBackground: '#222',
       // // hasBounds: true,
       // enabled: true,
@@ -167,9 +167,15 @@ function Start() {
   // Matter.Body.setMass(boxB, .0001);
   // "./img/logo512px.png"
 
-  ground = Bodies.rectangle(0, startHeight, startWidth * 2, 10, { isStatic: true });
+  ground = Bodies.rectangle(0, startHeight, startWidth * 2, 10, {
+    isStatic: true,
+    collisionFilter: {
+      category: wallCategory,
+    },
+
+  });
   // leftWall = Bodies.rectangle(0, 400, 60, startHeight, { isStatic: true, visible: false });
-  // rightWall = Bodies.rectangle(startWidth, 400, 60, startHeight, { isStatic: true, visible: false });  
+  // rightWall = Bodies.rectangle(startWidth, 400, 60, startHeight, { isStatic: true, visible: false });
   centerBox = Bodies.rectangle(200, 200, 200, 200, { isStatic: true, visible: false });
 
   charBox = Bodies.rectangle(startWidth / 2 - (charSize / 2), startHeight - 80, 50, 50, { isStatic: false });
