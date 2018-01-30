@@ -21,6 +21,11 @@ function removeLoadScreen() {
 
 $(document).ready(function() {
 
+  // for(){
+  //   Matter.Composite.remove(world, body)
+  //
+  // }
+
   Start();
   antiGravForce = (-0.0055 * charBox.mass);
 
@@ -55,7 +60,7 @@ $(document).ready(function() {
   player = new Tone.Player({
     "url": "./Setlers-I_Swim.mp3",
     "loop": true,
-    // "volume": -80,
+    "volume": -80,
     "autostart": "true",
     "onload": removeLoadScreen(),
   }).fan(fft).connect(meter).toMaster();
@@ -297,4 +302,22 @@ function dropItem(level){
 
   }))
   // midCenter;
+
+  var totalBods = world.bodies;
+  // console.log(totalBods.length);
+  for(var i = 0; i < totalBods.length; i++){
+    // console.log
+    // if totalBods[i].label = ""
+    if (totalBods[i].label == "Circle Body"){
+      console.log(totalBods.length);
+      // console.log(totalBods[i].position.y)
+      if (totalBods[i].position.y > 640){
+        // console.log(totalBods.length);
+        console.log("removing bod: " + i);
+        Matter.Composite.remove(world, totalBods[i]);
+      }
+    }
+
+
+  }
 }
