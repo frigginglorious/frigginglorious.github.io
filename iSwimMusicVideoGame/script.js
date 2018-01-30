@@ -5,6 +5,7 @@ var fftContext;
 var multiplier = .4;
 
 var antiGravForce;
+var pair = Matter.Pair
 
 var scoreCounter = 0;
 
@@ -41,7 +42,7 @@ $(document).ready(function() {
 
     render.canvas.addEventListener('mouseup', function(evt) {
       mouseIsDown = false;
-      console.log("updawg");
+      // console.log("updawg");
 
       // writeMessage(canvas, message);
     }, false);
@@ -65,7 +66,7 @@ $(document).ready(function() {
     fftContext = render.canvas.getContext("2d");
 
     // fftContext.canvas.height = 1000;
-    console.log(fftContext);
+    // console.log(fftContext);
     // sizeCanvases();
 
     loop();
@@ -156,23 +157,38 @@ $(document).ready(function() {
 
   // $(window).resize(sizeCanvases);
 
+  var collided = false;
   function loop() {
     loopCount++;
     if (loopCount % 20 == 0){
       loopCount = 0;
       var level = meter.getValue();
-      console.log(level);
+      // console.log(level);
       if (level > 0){
         dropItem(level);
 
       }
     }
-    console.log("Score: " + scoreCounter.toString())
+    // console.log("Score: " + scoreCounter.toString())
+
     // Events.on(engine, "afterUpdate", function(){
     Events.on(engine, "collisionStart", function(o){
-      // console.info(o);
+
       scoreCounter++;
       $("#score").text(scoreCounter);
+      if (collided == false){
+        console.info(o);
+        collided  = true;
+
+      }
+
+
+      // p1 = pair.create(o, scoreCounter);
+      // setTimeout(function () {    //  call a 3s setTimeout when the loop is called
+      //    //alert('hello');          //  your code here
+      //    //i++;                     //  increment the counter
+      //
+      // }, 50000)
     })
     // setTimeout(function(){
     requestAnimationFrame(loop);
@@ -181,8 +197,9 @@ $(document).ready(function() {
     drawFFT(fftValues);
     drawMeter();
     if (mouseIsDown){
-      console.log("down town");
-      console.log(charBox.position.x);
+      // console.log("down town");
+      // console.log(charBox.position.x);
+
       // var mousePos = getMousePos(render.canvas, evt);
       moveIt(direction);
     }
@@ -259,7 +276,7 @@ $(document).ready(function() {
 
 function dropItem(level){
   pos = startWidth * level
-  console.log(pos)
+  // console.log(pos)
   World.add(engine.world, Bodies.circle(pos, 0, 10, {
     mass: .01,
     restitution: .9,
