@@ -60,7 +60,7 @@ $(document).ready(function() {
   player = new Tone.Player({
     "url": "./Setlers-I_Swim.mp3",
     "loop": true,
-    "volume": -80,
+    // "volume": -80,
     "autostart": "true",
     "onload": removeLoadScreen(),
   }).fan(fft).connect(meter).toMaster();
