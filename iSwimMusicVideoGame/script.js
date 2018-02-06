@@ -11,8 +11,11 @@ var scoreCounter = 0;
 
 var defaultCategory = 0x0001,
         wallCategory = 0x0002;
+        // goodCategory = 0x0002;
         // greenCategory = 0x0004,
         // blueCategory = 0x0008;
+
+var goody = true;
 
 var loopCount = 0;
 function removeLoadScreen() {
@@ -46,6 +49,25 @@ $(document).ready(function() {
     }, false);
 
     render.canvas.addEventListener('mouseup', function(evt) {
+      mouseIsDown = false;
+      // console.log("updawg");
+
+      // writeMessage(canvas, message);
+    }, false);
+
+
+    render.canvas.addEventListener('touchstart', function(evt) {
+      var mousePos = getMousePos(render.canvas, evt);
+      direction = 1
+
+      if (mousePos.x < charBox.position.x){
+        direction *= -1
+      }
+      moveIt(direction);
+      // writeMessage(canvas, message);
+    }, false);
+
+    render.canvas.addEventListener('touchend', function(evt) {
       mouseIsDown = false;
       // console.log("updawg");
 
@@ -178,14 +200,29 @@ $(document).ready(function() {
 
     // Events.on(engine, "afterUpdate", function(){
     Events.on(engine, "collisionStart", function(o){
+      // console.info(o.pairs[0].bodyB.label);
+      // console.log(o.source);
 
-      scoreCounter++;
-      $("#score").text(scoreCounter);
-      if (collided == false){
-        console.info(o);
-        collided  = true;
-
+      if((o.pairs[0].bodyB.label == "Circle Bad") || (o.pairs[0].bodyA.label == "Circle Bad")){
+        scoreCounter--;
       }
+      if((o.pairs[0].bodyB.label == "Circle Good") || (o.pairs[0].bodyA.label == "Circle Good")){
+        scoreCounter++;
+      }
+      // if(o.source.label == "Circle Good"){
+      //   scoreCounter++;
+      // }
+      // if(o.source.label == "Circle Bad"){
+      //   scoreCounter--;
+      // }
+      $("#score").text(scoreCounter);
+
+
+      // if (collided == false){
+      //   console.info(o);
+      //   collided  = true;
+      //
+      // }
 
 
       // p1 = pair.create(o, scoreCounter);
@@ -282,12 +319,15 @@ $(document).ready(function() {
 function dropItem(level){
   pos = startWidth * level
   // console.log(pos)
-  World.add(engine.world, Bodies.circle(pos, 0, 10, {
+  var newGoody = Bodies.circle(pos, 0, 10, {
+    label: "Circle Good",
     mass: .01,
     restitution: .9,
     collisionFilter: {
       // category: wallCategory,
       mask: defaultCategory,
+      // mask: goodCategory,
+
     },
     render: {
       sprite: {
@@ -295,12 +335,37 @@ function dropItem(level){
         texture: './img/logo512px.png',
         xScale: .055,
         yScale: .055,
-
-
       }
     },
+  });
 
-  }))
+  var newBaddy = Bodies.circle(pos, 0, 10, {
+    label: "Circle Bad",
+    mass: .01,
+    restitution: .9,
+    collisionFilter: {
+      // category: wallCategory,
+      mask: defaultCategory,
+      // mask: goodCategory,
+
+    },
+    render: {
+      sprite: {
+        // texture: 'https://raw.githubusercontent.com/liabru/matter-js/2560a681/demo/img/ball.png'
+        texture: './img/bomb64.png',
+        xScale: .855,
+        yScale: .855,
+      }
+    },
+  });
+  // var rand = Math.floor(Math.random() * Math.floor(2));
+  if(goody == true){
+    World.add(engine.world, newGoody);
+    goody =false;
+  }else if(goody == false){
+    World.add(engine.world, newBaddy);
+    goody = true;
+  }
   // midCenter;
 
   var totalBods = world.bodies;
@@ -308,7 +373,7 @@ function dropItem(level){
   for(var i = 0; i < totalBods.length; i++){
     // console.log
     // if totalBods[i].label = ""
-    if (totalBods[i].label == "Circle Body"){
+    if (totalBods[i].label.includes("Circle")){ // == "Circle Body")
       console.log(totalBods.length);
       // console.log(totalBods[i].position.y)
       if (totalBods[i].position.y > 640){
@@ -317,7 +382,5 @@ function dropItem(level){
         Matter.Composite.remove(world, totalBods[i]);
       }
     }
-
-
   }
 }

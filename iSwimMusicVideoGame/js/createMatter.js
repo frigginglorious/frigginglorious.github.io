@@ -141,8 +141,6 @@ function Start() {
         texture: './img/logo512px.png',
         xScale: .25,
         yScale: .25,
-
-
       }
     },
   });
@@ -158,11 +156,8 @@ function Start() {
         texture: './img/logo512px.png',
         xScale: .25,
         yScale: .25,
-
-
       }
     },
-
   });
   // Matter.Body.setMass(boxB, .0001);
   // "./img/logo512px.png"
