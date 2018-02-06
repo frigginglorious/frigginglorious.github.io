@@ -16,11 +16,20 @@ var defaultCategory = 0x0001,
         // blueCategory = 0x0008;
 
 var goody = true;
-
+var started = false;
 var loopCount = 0;
 function removeLoadScreen() {
+
   $("#loadScreen").hide(1000);
+  started = true;
 }
+
+function displayEndSceen() {
+  // started = true;
+  $("#endScreen .loadText").append($("#score").text());
+  $("#endScreen").show(1000);
+}
+
 
 $(document).ready(function() {
 
@@ -81,12 +90,12 @@ $(document).ready(function() {
 
   player = new Tone.Player({
     "url": "./Setlers-I_Swim.mp3",
-    "loop": true,
+    "loop": false,
+    "playbackRate": 1,
     // "volume": -80,
     "autostart": "true",
     "onload": removeLoadScreen(),
   }).fan(fft).connect(meter).toMaster();
-
 
   setTimeout(function() {
 
@@ -104,6 +113,7 @@ $(document).ready(function() {
 
 
   function drawFFT(values) {
+
 
     var barWidth = startWidth / fft.size;
     for (var i = 0, len = values.length; i < len; i++) {
@@ -186,6 +196,7 @@ $(document).ready(function() {
 
   var collided = false;
   function loop() {
+
     loopCount++;
     if (loopCount % 20 == 0){
       loopCount = 0;
@@ -271,6 +282,18 @@ $(document).ready(function() {
 
 
   function drawMeter() {
+    console.log("SCORE TEXT: " + $("#score").text())
+    console.log("Started? " + started);
+    console.log("plahying? " + player.state)
+    if(player.state == "stopped"){
+      if(($("#score").text() != "") && started){
+        console.log("SCORE TEXT: " + $("#score").text())
+        console.log("Started? " + started);
+        console.log("plahying? " + player.state)
+        started = false;
+        displayEndSceen();
+      }
+    }
     var level = meter.getValue();
     level = (level + 1) / 2;
     // level = Tone.gainToDb(level); //scale it between 0 - 1

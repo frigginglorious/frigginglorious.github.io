@@ -9,17 +9,17 @@
 	top: 40%;
 	width:100%;
 }
-#loadTitle{
+.loadTitle{
 	font-size: 4em;
-	color:white;
+	color:red;
 }
-#loadText{
+.loadText{
 	font-size: 1em;
 	color:grey;
 }
-#loadSubText{
+.loadSubText{
 	font-size: 2em;
-	color:white;
+	color:red;
 }
 #scoreBoard{
 	color: red;
