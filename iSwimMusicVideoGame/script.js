@@ -286,7 +286,7 @@ $(document).ready(function() {
     console.log("Started? " + started);
     console.log("plahying? " + player.state)
     if(player.state == "stopped"){
-      if(($("#score").text() != "") && ($("#score").text() != "0") && started){
+      if(($("#score").text() != "") && ($("#score").text() != 0) && started){
         console.log("SCORE TEXT: " + $("#score").text())
         console.log("Started? " + started);
         console.log("plahying? " + player.state)
