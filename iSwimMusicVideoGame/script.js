@@ -57,10 +57,10 @@ $(document).ready(function() {
 
 
     render.canvas.addEventListener('touchstart', function(evt) {
-      var mousePos = getMousePos(render.canvas, evt);
+      // var mousePos = getMousePos(render.canvas, evt);
       direction = 1
-
-      if (mousePos.x < charBox.position.x){
+      // console.log(evt)
+      if (evt.changedTouches[0].clientX < charBox.position.x){
         direction *= -1
       }
       moveIt(direction);
