@@ -2,57 +2,57 @@
 
 <rss xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
 	<channel>
-		<atom:link href="http://localhost/index.rss" rel="self" type="application/rss+xml" />
+		<atom:link href="http://localhostfrigginglorious.github.io/danSongMix/index.rss" rel="self" type="application/rss+xml" />
 		<title>A Moxie Mixtape!</title>
-		<link>http://localhost/index.html</link>
+		<link>http://localhostfrigginglorious.github.io/danSongMix/index.html</link>
 		<description>&lt;p&gt;Make a README&lt;/p&gt;</description>
 		<item>
 			<title>Process Intoxication - Sand In My Pocket</title>
 			<itunes:author>Process Intoxication</itunes:author>
-			<enclosure url="http://localhost/00%20-%20Process%20Intoxication%20-%20Sand%20In%20My%20Pocket.mp3" length="3297938" type="audio/mpeg" />
-			<guid>http://localhost/00%20-%20Process%20Intoxication%20-%20Sand%20In%20My%20Pocket.mp3</guid>
+			<enclosure url="http://localhostfrigginglorious.github.io/danSongMix/00%20-%20Process%20Intoxication%20-%20Sand%20In%20My%20Pocket.mp3" length="3297938" type="audio/mpeg" />
+			<guid>http://localhostfrigginglorious.github.io/danSongMix/00%20-%20Process%20Intoxication%20-%20Sand%20In%20My%20Pocket.mp3</guid>
 			<itunes:duration>3:25</itunes:duration>
 		</item>
 		<item>
 			<title>One Match Fire - Lovely Lost</title>
 			<itunes:author>One Match Fire</itunes:author>
-			<enclosure url="http://localhost/OneMatchFireTheLovelyLostEP04LovelyLost.mp3" length="10278942" type="audio/mpeg" />
-			<guid>http://localhost/OneMatchFireTheLovelyLostEP04LovelyLost.mp3</guid>
+			<enclosure url="http://localhostfrigginglorious.github.io/danSongMix/OneMatchFireTheLovelyLostEP04LovelyLost.mp3" length="10278942" type="audio/mpeg" />
+			<guid>http://localhostfrigginglorious.github.io/danSongMix/OneMatchFireTheLovelyLostEP04LovelyLost.mp3</guid>
 			<itunes:duration>4:14</itunes:duration>
 		</item>
 		<item>
 			<title>Setlers - Alive</title>
 			<itunes:author>Setlers</itunes:author>
-			<enclosure url="http://localhost/SetlersAlive.mp3" length="12416591" type="audio/mpeg" />
-			<guid>http://localhost/SetlersAlive.mp3</guid>
+			<enclosure url="http://localhostfrigginglorious.github.io/danSongMix/SetlersAlive.mp3" length="12416591" type="audio/mpeg" />
+			<guid>http://localhostfrigginglorious.github.io/danSongMix/SetlersAlive.mp3</guid>
 			<itunes:duration>5:10</itunes:duration>
 		</item>
 		<item>
 			<title>The Bastettes - Velour(Remastered)</title>
 			<itunes:author>The Bastettes</itunes:author>
-			<enclosure url="http://localhost/VelourRemastered.mp3" length="8106605" type="audio/mpeg" />
-			<guid>http://localhost/VelourRemastered.mp3</guid>
+			<enclosure url="http://localhostfrigginglorious.github.io/danSongMix/VelourRemastered.mp3" length="8106605" type="audio/mpeg" />
+			<guid>http://localhostfrigginglorious.github.io/danSongMix/VelourRemastered.mp3</guid>
 			<itunes:duration>3:22</itunes:duration>
 		</item>
 		<item>
 			<title>Daniel Kraft - dulci</title>
 			<itunes:author>Daniel Kraft</itunes:author>
-			<enclosure url="http://localhost/dulci.mp3" length="1931306" type="audio/mpeg" />
-			<guid>http://localhost/dulci.mp3</guid>
+			<enclosure url="http://localhostfrigginglorious.github.io/danSongMix/dulci.mp3" length="1931306" type="audio/mpeg" />
+			<guid>http://localhostfrigginglorious.github.io/danSongMix/dulci.mp3</guid>
 			<itunes:duration>1:20</itunes:duration>
 		</item>
 		<item>
 			<title>No Artist - No Title</title>
 			<itunes:author>No Artist</itunes:author>
-			<enclosure url="http://localhost/frigginGlorious-GoodOlDays-LiveAtSkylark.mp3" length="3572005" type="audio/mpeg" />
-			<guid>http://localhost/frigginGlorious-GoodOlDays-LiveAtSkylark.mp3</guid>
+			<enclosure url="http://localhostfrigginglorious.github.io/danSongMix/frigginGlorious-GoodOlDays-LiveAtSkylark.mp3" length="3572005" type="audio/mpeg" />
+			<guid>http://localhostfrigginglorious.github.io/danSongMix/frigginGlorious-GoodOlDays-LiveAtSkylark.mp3</guid>
 			<itunes:duration>2:28</itunes:duration>
 		</item>
 		<item>
 			<title>No Artist - No Title</title>
 			<itunes:author>No Artist</itunes:author>
-			<enclosure url="http://localhost/fruit%20of%20the%20problem%20-%206_22_15%2C%2011.38%20PM.mp3" length="3819646" type="audio/mpeg" />
-			<guid>http://localhost/fruit%20of%20the%20problem%20-%206_22_15%2C%2011.38%20PM.mp3</guid>
+			<enclosure url="http://localhostfrigginglorious.github.io/danSongMix/fruit%20of%20the%20problem%20-%206_22_15%2C%2011.38%20PM.mp3" length="3819646" type="audio/mpeg" />
+			<guid>http://localhostfrigginglorious.github.io/danSongMix/fruit%20of%20the%20problem%20-%206_22_15%2C%2011.38%20PM.mp3</guid>
 			<itunes:duration>2:38</itunes:duration>
 		</item>
 	</channel>
