@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+
+<html>
+	<head>
+		<title>A Moxie Mixtape!</title>
+		<link rel="alternate" type="application/xspf+xml" href="index.xspf" />
+		<link rel="alternate" type="application/rss+xml" title="RSS" href="index.rss" />
+		<link rel="stylesheet" type="text/css" href="style.css" />
+		<link rel="stylesheet" type="text/css" href="local.css" />
+		<script type="text/javascript" src="swfobject.js"></script>
+		<script type="text/javascript" src="jquery-1.2.6.min.js"></script>
+		<script type="text/javascript" src="moxie.js"></script>
+		<script type="text/javascript">
+			$(function () {
+				swfobject.embedSWF("MusicPlayer.swf", "player", "0", "0", "8.0.0", "expressInstall.swf", {playlist: "index.xspf"}, {}, {});
+			});
+		</script>
+	</head>
+	<body>
+		<div id="header">
+			<h1>A Moxie Mixtape!</h1>
+			<p>Make a README</p>
+		</div>
+
+		<noscript>
+			<div>
+				Javascript + Flash = <a href="http://www.nbc.com/Saturday_Night_Live/video/clips/chronicles-of-narnia-lazy-sunday/2921/">Crazy Delicious</a>!
+			</div>
+		</noscript>
+
+		<ul class="songs">
+			<li class="song" id="0">
+				<span class="time">
+					<span class="position"></span>
+					<span class="duration">3:25</span>
+				</span>
+				<span class="title">
+					Process Intoxication - Sand In My Pocket
+				</span>
+			</li>
+			<li class="song" id="1">
+				<span class="time">
+					<span class="position"></span>
+					<span class="duration">4:14</span>
+				</span>
+				<span class="title">
+					One Match Fire - Lovely Lost
+				</span>
+			</li>
+			<li class="song" id="2">
+				<span class="time">
+					<span class="position"></span>
+					<span class="duration">5:10</span>
+				</span>
+				<span class="title">
+					Setlers - Alive
+				</span>
+			</li>
+			<li class="song" id="3">
+				<span class="time">
+					<span class="position"></span>
+					<span class="duration">3:22</span>
+				</span>
+				<span class="title">
+					The Bastettes - Velour(Remastered)
+				</span>
+			</li>
+			<li class="song" id="4">
+				<span class="time">
+					<span class="position"></span>
+					<span class="duration">1:20</span>
+				</span>
+				<span class="title">
+					Daniel Kraft - dulci
+				</span>
+			</li>
+			<li class="song" id="5">
+				<span class="time">
+					<span class="position"></span>
+					<span class="duration">2:28</span>
+				</span>
+				<span class="title">
+					No Artist - No Title
+				</span>
+			</li>
+			<li class="song" id="6">
+				<span class="time">
+					<span class="position"></span>
+					<span class="duration">2:38</span>
+				</span>
+				<span class="title">
+					No Artist - No Title
+				</span>
+			</li>
+		</ul>
+
+		<div id="player" />
+	</body>
+</html>

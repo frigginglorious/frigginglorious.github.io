@@ -1,0 +1,55 @@
+<?xml version='1.0' encoding='UTF-8'?>
+
+<playlist version='1' xmlns='http://xspf.org/ns/0/'>
+	<trackList>
+		<track>
+			<album>Live At The Grand Little Theatre</album>
+			<creator>Process Intoxication</creator>
+			<duration>205957</duration>
+			<location>00%20-%20Process%20Intoxication%20-%20Sand%20In%20My%20Pocket.mp3</location>
+			<title>Sand In My Pocket</title>
+		</track>
+		<track>
+			<album>The Lovely Lost EP</album>
+			<creator>One Match Fire</creator>
+			<duration>254678</duration>
+			<location>OneMatchFireTheLovelyLostEP04LovelyLost.mp3</location>
+			<title>Lovely Lost</title>
+		</track>
+		<track>
+			<album>Katana EP</album>
+			<creator>Setlers</creator>
+			<duration>310384</duration>
+			<location>SetlersAlive.mp3</location>
+			<title>Alive</title>
+		</track>
+		<track>
+			<album>Wisco-SoCo Tour Comp 2016</album>
+			<creator>The Bastettes</creator>
+			<duration>202579</duration>
+			<location>VelourRemastered.mp3</location>
+			<title>Velour(Remastered)</title>
+		</track>
+		<track>
+			<album>Daniel Kraft&#39;s Album</album>
+			<creator>Daniel Kraft</creator>
+			<duration>80300</duration>
+			<location>dulci.mp3</location>
+			<title>dulci</title>
+		</track>
+		<track>
+			<album>No Album</album>
+			<creator>No Artist</creator>
+			<duration>148662</duration>
+			<location>frigginGlorious-GoodOlDays-LiveAtSkylark.mp3</location>
+			<title>No Title</title>
+		</track>
+		<track>
+			<album>No Album</album>
+			<creator>No Artist</creator>
+			<duration>158981</duration>
+			<location>fruit%20of%20the%20problem%20-%206_22_15%2C%2011.38%20PM.mp3</location>
+			<title>No Title</title>
+		</track>
+	</trackList>
+</playlist>
