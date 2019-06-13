@@ -1,0 +1,5 @@
+baseURL = "http://frigginglorious.github.io/musicMonth"
+languageCode = "en-us"
+title = "musicMonth"
+theme = "hyde"
+style = "default"

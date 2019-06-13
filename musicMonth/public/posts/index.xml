@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Posts on musicMonth</title>
+    <link>http://frigginglorious.github.io/musicMonth/posts/</link>
+    <description>Recent content in Posts on musicMonth</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 31 Dec 1969 18:00:06 -0600</lastBuildDate>
+    
+	<atom:link href="http://frigginglorious.github.io/musicMonth/posts/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Dear Heartthrob</title>
+      <link>http://frigginglorious.github.io/musicMonth/posts/dearheartthrob/</link>
+      <pubDate>Wed, 31 Dec 1969 18:00:06 -0600</pubDate>
+      
+      <guid>http://frigginglorious.github.io/musicMonth/posts/dearheartthrob/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>first</title>
+      <link>http://frigginglorious.github.io/musicMonth/posts/first/</link>
+      <pubDate>Wed, 31 Dec 1969 18:00:06 -0600</pubDate>
+      
+      <guid>http://frigginglorious.github.io/musicMonth/posts/first/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>second</title>
+      <link>http://frigginglorious.github.io/musicMonth/posts/second/</link>
+      <pubDate>Wed, 31 Dec 1969 18:00:06 -0600</pubDate>
+      
+      <guid>http://frigginglorious.github.io/musicMonth/posts/second/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>
