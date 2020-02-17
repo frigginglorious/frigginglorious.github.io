@@ -1,7 +1,0 @@
-baseURL = "http://frigginglorious.github.io/Setlers/"
-languageCode = "en-us"
-title = "Setlers"
-theme = "import"
-style = "default"
-[params]
-authorimage = "cover.jpg"
