@@ -3,49 +3,49 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>http://localhost:1313/Setlers/posts/alive/</loc>
+    <loc>http://frigginglorious.github.io/Setlers/posts/alive/</loc>
     <lastmod>1969-12-31T18:33:37-06:00</lastmod>
   </url>
   
   <url>
-    <loc>http://localhost:1313/Setlers/posts/iswim/</loc>
+    <loc>http://frigginglorious.github.io/Setlers/posts/iswim/</loc>
     <lastmod>1969-12-31T18:33:37-06:00</lastmod>
   </url>
   
   <url>
-    <loc>http://localhost:1313/Setlers/posts/</loc>
-    <lastmod>1969-12-31T18:33:37-06:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>http://localhost:1313/Setlers/posts/scrotsong/</loc>
-    <lastmod>1969-12-31T18:33:37-06:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://localhost:1313/Setlers/</loc>
+    <loc>http://frigginglorious.github.io/Setlers/posts/</loc>
     <lastmod>1969-12-31T18:33:37-06:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/Setlers/posts/shallowgrayve/</loc>
+    <loc>http://frigginglorious.github.io/Setlers/posts/scrotsong/</loc>
     <lastmod>1969-12-31T18:33:37-06:00</lastmod>
   </url>
   
   <url>
-    <loc>http://localhost:1313/Setlers/posts/sugarisland/</loc>
+    <loc>http://frigginglorious.github.io/Setlers/</loc>
     <lastmod>1969-12-31T18:33:37-06:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://localhost:1313/Setlers/categories/</loc>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/Setlers/tags/</loc>
+    <loc>http://frigginglorious.github.io/Setlers/posts/shallowgrayve/</loc>
+    <lastmod>1969-12-31T18:33:37-06:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://frigginglorious.github.io/Setlers/posts/sugarisland/</loc>
+    <lastmod>1969-12-31T18:33:37-06:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://frigginglorious.github.io/Setlers/categories/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://frigginglorious.github.io/Setlers/tags/</loc>
     <priority>0</priority>
   </url>
   
