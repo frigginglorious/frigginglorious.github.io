@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+        <meta charset="utf-8">
+
+        <title>reveal.js - The HTML Presentation Framework</title>
+
+        <meta name="description" content="A framework for easily creating beautiful presentations using HTML">
+        <meta name="author" content="Hakim El Hattab">
+
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+        <link rel="stylesheet" href="jukeDec_files/reveal.css">
+        <link rel="stylesheet" href="jukeDec_files/black.css" id="theme">
+
+        <!-- Code syntax highlighting -->
+        <link rel="stylesheet" href="jukeDec_files/zenburn.css">
+
+        <!-- Printing and PDF exports -->
+        <script>
+            var link = document.createElement( 'link' );
+            link.rel = 'stylesheet';
+            link.type = 'text/css';
+            link.href = window.location.search.match( /print-pdf/gi )
+                ? '/static/revealjs/css/print/pdf.css'
+                : '/static/revealjs/css/print/paper.css';
+            document.getElementsByTagName( 'head' )[0].appendChild( link );
+        </script><link rel="stylesheet" type="text/css" href="jukeDec_files/paper.css">
+
+        <!--[if lt IE 9]>
+        <script src="lib/js/html5shiv.js"></script>
+        <![endif]-->
+    </head>
+
+    <body style="transition: transform 0.8s ease 0s;">
+        <div class="reveal slide center" role="application" data-transition-speed="default" data-background-transition="fade">
+            <div class="slides" style="width: 960px; height: 700px; inset: 50% auto auto 50%; transform: translate(-50%, -50%) scale(1.11214);"><section data-charset="utf-8" data-markdown="" data-markdown-parsed="true" style="top: 0px; display: block;" class="present"><h1>Jukedec</h1>
+<h3>Jukebox, Decentralized</h3>
+<marquee direction="up" behavior="slide" scrollamount="30" width="40%" height="600px">
+<br>
+<br>
+<img src="jukeDec_files/logo.png">
+</marquee>
+
+<marquee direction="up" behavior="slide" scrollamount="15" width="40%" height="600px">
+<br>
+<br>
+<small><em>presented by</em></small>
+@frigginGlorious
+<br>
+<br>
+<small><em>for</em></small>
+<br>
+Blockhack Global 2020
+<br>
+</marquee>
+
+
+
+<aside class="notes" data-markdown="">## Purpose of the talk
+- I like the idea of controlling our own livelihoods
+- Strong feelings against corporate world and money in general
+- Are there any students here?
+- I'm NOT a professional consultant
+    - Any interest?</aside></section><section data-charset="utf-8" data-markdown="" data-markdown-parsed="true" style="top: 140px; display: block;" aria-hidden="true" class="future" hidden=""><h2>Problem</h2>
+<ul>
+<li>Artists don't get paid</li>
+<li>Performance Rights Organizations<ul>
+<li>PR is a legal licensing term that applies to playing a music recording in public place</li>
+</ul>
+</li>
+<li>Streamers' DMCA</li>
+</ul>
+<aside class="notes" data-markdown="">- How I met Craig</aside></section><section data-charset="utf-8" data-markdown="" data-markdown-parsed="true" style="top: 0px; display: block;" aria-hidden="true" class="future" hidden=""><h2>Problem: Example</h2>
+<p><img src="jukeDec_files/dmca.png" width="100%"></p>
+<aside class="notes" data-markdown="">- lookin' good, cowboy</aside></section><section data-charset="utf-8" data-markdown="" data-markdown-parsed="true" style="top: 330px; display: none;" aria-hidden="true" class="future" hidden=""><h3>Solution</h3>
+<ul>
+<li>People will pay for others to get others to listen to their music</li>
+</ul>
+<aside class="notes" data-markdown="">- lookin' good, cowboy
+- open to things you enjoy
+- maybe have a business card?</aside></section><section data-charset="utf-8" data-markdown="" data-markdown-parsed="true" style="top: 330px; display: none;" aria-hidden="true" class="future" hidden=""><h2>Jukedec Services - High Level</h2>
+<ul>
+<li>Jukedec.org (Administration)<ul>
+<li>Issues Tokens </li>
+<li>Maintains records of<ul>
+<li>Host/Publisher instances</li>
+<li>Venue/Stream instances</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Jukedec.com (Host/Publisher)<ul>
+<li>Indie record labels can become their own hosts and publishers</li>
+</ul>
+</li>
+<li>Audio stream software (Venue/Stream)<ul>
+<li>Twitch streamers client</li>
+<li>Economy Hardware in physical venue</li>
+</ul>
+</li>
+<li>Jukedec End-User web app (PWA)</li>
+</ul>
+<aside class="notes" data-markdown="">- one beers worth of confidence
+- ERP tweaking (Uncomfortable)
+- Adding ACH payment method (I've done payment APIs)</aside></section><section data-charset="utf-8" data-markdown="" data-markdown-parsed="true" style="top: 330px; display: none;" aria-hidden="true" class="future" hidden=""><h1>Demotime</h1>
+</section><section data-charset="utf-8" data-markdown="" data-markdown-parsed="true" style="top: 330px; display: none;" aria-hidden="true" class="future" hidden=""><p><img src="jukeDec_files/jukedec1.png" width="40%"></p>
+</section><section data-charset="utf-8" data-markdown="" data-markdown-parsed="true" style="top: 330px; display: none;" aria-hidden="true" class="future" hidden=""><p><img src="jukeDec_files/jukedec2.png" width="40%"></p>
+<aside class="notes" data-markdown="">- Just a Smidge</aside></section><section data-charset="utf-8" data-markdown="" data-markdown-parsed="true" style="top: 330px; display: none;" aria-hidden="true" class="future" hidden=""><p><img src="jukeDec_files/jukedec3.png" width="40%"></p>
+<aside class="notes" data-markdown="">- Just a Smidge</aside></section><section data-charset="utf-8" data-markdown="" data-markdown-parsed="true" style="top: 330px; display: none;" aria-hidden="true" class="future" hidden=""><h3>Existing Alternatives</h3>
+<ul>
+<li>TouchTunes: Brick and Mortar Jukebox Service</li>
+<li>PROs (Performance Rights Organization)<ul>
+<li>Every country has at least one. </li>
+</ul>
+</li>
+</ul>
+<aside class="notes" data-markdown="">### Looking for Clients?
+
+- talk about what you love</aside></section><section data-charset="utf-8" data-markdown="" data-markdown-parsed="true" style="top: 330px; display: none;" aria-hidden="true" class="future" hidden=""><p><img src="jukeDec_files/jukedecCosts.jpg"></p>
+</section><section data-charset="utf-8" data-markdown="" data-markdown-parsed="true" style="top: 330px; display: none;" aria-hidden="true" class="future" hidden=""><p><img src="jukeDec_files/shares.png"></p>
+<aside class="notes" data-markdown="">- Just a Smidge</aside></section><section data-charset="utf-8" data-markdown="" data-markdown-parsed="true" style="top: 330px; display: none;" aria-hidden="true" class="future" hidden=""><h2>Unique Value Prop</h2>
+<ul>
+<li>Unique Service: No other service pays a Twitch streamer for the music they play.</li>
+</ul>
+<aside class="notes" data-markdown="">- Becky Was super nice</aside></section><section data-charset="utf-8" data-markdown="" data-markdown-parsed="true" style="top: 330px; display: none;" aria-hidden="true" class="future" hidden=""><h2>Key Metrics</h2>
+<ul>
+<li>Jukebox Instance Installations</li>
+<li>Unique Artists in federated database</li>
+<li>PWA App Installation</li>
+<li>Registered Venues</li>
+<li>Plays</li>
+</ul>
+<aside class="notes" data-markdown="">- familliar with line of business and tech</aside></section><section data-charset="utf-8" data-markdown="" data-markdown-parsed="true" style="top: 330px; display: none;" aria-hidden="true" class="future" hidden=""><h2>Unfair Advantage</h2>
+<ul>
+<li>Eliminates all middle-men</li>
+</ul>
+<aside class="notes" data-markdown="">- Ecommerce shopping cart
+- Configuring their order
+- B2B, Upsell a few hundred units</aside></section><section data-charset="utf-8" data-markdown="" data-markdown-parsed="true" style="top: 214px; display: block;" aria-hidden="true" class="future" hidden=""><h2>Channels</h2>
+<ul>
+<li>Music &amp; Industry Blogs</li>
+<li>Twitch Streamer Outreach</li>
+</ul>
+<aside class="notes" data-markdown="">- lookin' good, cowboy</aside></section><section data-charset="utf-8" data-markdown="" data-markdown-parsed="true" style="top: 140px; display: block;" aria-hidden="true" class="future" hidden=""><h2>Artist Adopters</h2>
+<ul>
+<li>Can share their music while retaining a sense of style and individuality.</li>
+<li>Powered by communities, empowered by the art.</li>
+<li>Holds monetary compensation accountable to where it matters.</li>
+</ul>
+<aside class="notes" data-markdown="">- lookin' good, cowboy</aside></section><section data-charset="utf-8" data-markdown="" data-markdown-parsed="true" style="top: 115.5px; display: block;" aria-hidden="true" class="future" hidden=""><h2>Jukedec Team</h2>
+<ul>
+<li>figginGlorious</li>
+<li>Server Admin<ul>
+<li>Product Engineer</li>
+</ul>
+</li>
+<li>Grinder<ul>
+<li>Database Engineer</li>
+<li>API Implementation</li>
+</ul>
+</li>
+</ul>
+<aside class="notes" data-markdown="">- I play D&amp;D
+- Making music keeps me sane
+- Ask me about Toorcamp, or CCC
+- COME TO Skunks Misery Woodland Hacker Camp
+    - Summer in Burlington, WI
+
+##### Hack the planet
+
+
+<!--<style>-->
+<!--img{-->
+<!--width: 60%-->
+<!--}-->
+<!--</style>--></aside></section></div>
+        <div class="backgrounds"><div class="slide-background present" style="display: block;" data-loaded="true"></div><div class="slide-background future" style="display: block;" data-loaded="true"></div><div class="slide-background future" style="display: block;" data-loaded="true"></div><div class="slide-background future" style="display: none;"></div><div class="slide-background future" style="display: none;"></div><div class="slide-background future" style="display: none;"></div><div class="slide-background future" style="display: none;"></div><div class="slide-background future" style="display: none;"></div><div class="slide-background future" style="display: none;"></div><div class="slide-background future" style="display: none;"></div><div class="slide-background future" style="display: none;"></div><div class="slide-background future" style="display: none;"></div><div class="slide-background future" style="display: none;"></div><div class="slide-background future" style="display: none;"></div><div class="slide-background future" style="display: none;"></div><div class="slide-background future" style="display: block;" data-loaded="true"></div><div class="slide-background future" style="display: block;" data-loaded="true"></div><div class="slide-background future" style="display: block;" data-loaded="true"></div></div><div class="progress" style="display: block;"><span style="width: 0px;"></span></div><aside class="controls" style="display: block;"><div class="navigate-left"></div><div class="navigate-right enabled"></div><div class="navigate-up"></div><div class="navigate-down"></div></aside><div class="slide-number"></div><div class="pause-overlay"></div><div style="position: absolute; height: 1px; width: 1px; overflow: hidden; clip: rect(1px, 1px, 1px, 1px);" id="aria-status-div" aria-live="polite" aria-atomic="true">Jukedec
+Jukebox, Decentralized
+
+
+
+
+
+
+
+
+
+presented by
+@frigginGlorious
+
+
+for
+
+Blockhack Global 2020
+
+
+
+
+
+## Purpose of the talk
+- I like the idea of controlling our own livelihoods
+- Strong feelings against corporate world and money in general
+- Are there any students here?
+- I'm NOT a professional consultant
+    - Any interest?</div></div>
+
+        <script src="jukeDec_files/head.js"></script>
+        <script src="jukeDec_files/reveal.js"></script>
+        <script src="jukeDec_files/jquery-2.js"></script>
+        <script src="jukeDec_files/slides.js"></script><script type="text/javascript" src="jukeDec_files/marked.js"></script><script type="text/javascript" src="jukeDec_files/markdown.js"></script>
+    
+
+<script type="text/javascript" src="jukeDec_files/highlight.js"></script><script type="text/javascript" src="jukeDec_files/zoom.js"></script><script type="text/javascript" src="jukeDec_files/notes.js"></script></body></html>
